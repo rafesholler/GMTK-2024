@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 
 @export var SPEED = 300.0
-@export var JUMP_VEL = -300.0
+@export var JUMP_VEL = -500.0
 @export var ACCEL = 8.0 
 @export var FRICT = 10.0
 @export var weight = 1
@@ -10,13 +10,9 @@ extends CharacterBody2D
 var health = max_health
 
 func _physics_process(delta: float) -> void:
-	# Add the gravity.
-	if not is_on_floor():
-		velocity.y += 9.8 * weight
-
 	# Handle jump w/ jump cutting and buffer zone.
 	if Input.is_action_just_pressed("Jump") and is_on_floor():
-		$JumpCutTimer.start(.5)
+		$JumpCutTimer.start(.2)
 	
 	#buffer jump for a few frames before landing
 	if Input.is_action_just_pressed("Jump") and not is_on_floor():
@@ -24,7 +20,7 @@ func _physics_process(delta: float) -> void:
 	
 	#jump if the player buffered it
 	if is_on_floor() and not $JumpBufferTimer.is_stopped():
-		$JumpCutTimer.start(.5)
+		$JumpCutTimer.start(.2)
 	
 	if Input.is_action_pressed("Jump") and not $JumpCutTimer.is_stopped():
 		velocity.y = JUMP_VEL
@@ -32,6 +28,10 @@ func _physics_process(delta: float) -> void:
 	#prevents double jumping
 	if Input.is_action_just_released("Jump") and not $JumpCutTimer.is_stopped():
 		$JumpCutTimer.stop()
+		
+	# Add the gravity.
+	if not is_on_floor():
+		velocity.y += 9.8 * weight * delta
 		
 	# Handle Movement
 	var direction := Input.get_axis("Left", "Right")
