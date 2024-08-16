@@ -31,9 +31,6 @@ position = Vector2(74, -234)
 [node name="Ant2" parent="." instance=ExtResource("2_nymu2")]
 position = Vector2(332, -262)
 
-[node name="Movement" parent="Ant2" index="0"]
-direction = 1
-
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
@@ -52,6 +49,4 @@ position = Vector2(170, -220)
 collision_layer = 2
 
 [editable path="Ant"]
-[editable path="Ant/Movement"]
 [editable path="Ant2"]
-[editable path="Ant2/Movement"]

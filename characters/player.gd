@@ -28,6 +28,10 @@ func _physics_process(delta: float) -> void:
 	
 	if Input.is_action_pressed("Jump") and not $JumpCutTimer.is_stopped():
 		velocity.y = JUMP_VEL
+	
+	#prevents double jumping
+	if Input.is_action_just_released("Jump") and not $JumpCutTimer.is_stopped():
+		$JumpCutTimer.stop()
 		
 	# Handle Movement
 	var direction := Input.get_axis("Left", "Right")
@@ -56,4 +60,5 @@ func _physics_process(delta: float) -> void:
 		$Ray.visible = false
 		$Ray.monitorable = false
 
+	Global.player_vel = velocity
 	move_and_slide()
