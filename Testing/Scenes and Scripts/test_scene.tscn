@@ -23,7 +23,6 @@ size = Vector2(1155, 20)
 position = Vector2(245, -124)
 collision_mask = 7
 script = ExtResource("5_10vdb")
-base_scale = 1.5
 
 [node name="Sprite2D" type="Sprite2D" parent="Object"]
 scale = Vector2(0.5, 0.5)
