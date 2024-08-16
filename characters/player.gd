@@ -14,10 +14,21 @@ func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity.y += 9.8 * weight
 
-	# Handle jump.
+	# Handle jump w/ jump cutting and buffer zone.
 	if Input.is_action_just_pressed("Jump") and is_on_floor():
+		$JumpCutTimer.start(.5)
+	
+	#buffer jump for a few frames before landing
+	if Input.is_action_just_pressed("Jump") and not is_on_floor():
+		$JumpBufferTimer.start(.1)
+	
+	#jump if the player buffered it
+	if is_on_floor() and not $JumpBufferTimer.is_stopped():
+		$JumpCutTimer.start(.5)
+	
+	if Input.is_action_pressed("Jump") and not $JumpCutTimer.is_stopped():
 		velocity.y = JUMP_VEL
-
+		
 	# Handle Movement
 	var direction := Input.get_axis("Left", "Right")
 	if direction:

@@ -61,3 +61,11 @@ shape = SubResource("RectangleShape2D_f1ud2")
 modulate = Color(0.392157, 1, 1, 0.392157)
 position = Vector2(26, 0)
 texture = ExtResource("4_4b6gx")
+
+[node name="JumpCutTimer" type="Timer" parent="."]
+process_callback = 0
+one_shot = true
+
+[node name="JumpBufferTimer" type="Timer" parent="."]
+process_callback = 0
+one_shot = true
