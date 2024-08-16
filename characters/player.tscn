@@ -1,15 +1,17 @@
-[gd_scene load_steps=8 format=3 uid="uid://ba400k2p67nde"]
+[gd_scene load_steps=11 format=3 uid="uid://ba400k2p67nde"]
 
 [ext_resource type="Script" path="res://characters/player.gd" id="1_djl0v"]
-[ext_resource type="Texture2D" uid="uid://40kmmh2tvgxh" path="res://Testing/Assets/walk2.png" id="2_48wsf"]
-[ext_resource type="Texture2D" uid="uid://du5636sm0vuik" path="res://Testing/Assets/walk1.png" id="3_5kooe"]
-[ext_resource type="Texture2D" uid="uid://wnwku7v1ymkt" path="res://Testing/Assets/New Piskel-3.png(17).png" id="4_4b6gx"]
+[ext_resource type="Texture2D" uid="uid://cb5mtbc56by2e" path="res://Assets/Walk Cycle/Walk1.png" id="2_4yupr"]
+[ext_resource type="Texture2D" uid="uid://bbgwn75s7i1bw" path="res://Assets/Walk Cycle/Walk2.png" id="3_w4l2y"]
+[ext_resource type="Texture2D" uid="uid://bwybw5l8yply4" path="res://Assets/Walk Cycle/Walk3.png" id="4_jgvo4"]
+[ext_resource type="Texture2D" uid="uid://cvpf585w51acw" path="res://Assets/Ray/Gun.png" id="5_o02km"]
+[ext_resource type="Texture2D" uid="uid://bakyl4rv6t6op" path="res://Assets/Ray/Beam.png" id="6_t1pmg"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_hlh5c"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_48wsf")
+"texture": ExtResource("2_4yupr")
 }],
 "loop": true,
 "name": &"Idle",
@@ -17,25 +19,43 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_5kooe")
+"texture": ExtResource("4_jgvo4")
+}],
+"loop": true,
+"name": &"Jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.5,
+"texture": ExtResource("2_4yupr")
 }, {
 "duration": 1.0,
-"texture": ExtResource("2_48wsf")
+"texture": ExtResource("3_w4l2y")
+}, {
+"duration": 1.5,
+"texture": ExtResource("4_jgvo4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_w4l2y")
 }],
 "loop": true,
 "name": &"Walk",
-"speed": 5.0
+"speed": 8.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_oiyk3"]
-size = Vector2(21.5, 25.5)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_l8hb8"]
+radius = 43.5
+height = 156.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f1ud2"]
-size = Vector2(32, 32)
+size = Vector2(128, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8xgfg"]
 
 [node name="Player" type="CharacterBody2D"]
 texture_filter = 1
 position = Vector2(0, -142)
+scale = Vector2(0.5, 0.5)
 collision_mask = 17
 script = ExtResource("1_djl0v")
 ACCEL = 15.0
@@ -43,22 +63,45 @@ weight = 400
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_hlh5c")
-animation = &"Walk"
+animation = &"Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.75, 0)
-shape = SubResource("RectangleShape2D_oiyk3")
+position = Vector2(0, 35)
+shape = SubResource("CapsuleShape2D_l8hb8")
 
-[node name="Ray" type="Area2D" parent="."]
+[node name="Raygun" type="CharacterBody2D" parent="."]
+position = Vector2(0, 14)
+
+[node name="Gun" type="Sprite2D" parent="Raygun"]
+texture = ExtResource("5_o02km")
+
+[node name="Ray" type="Area2D" parent="Raygun"]
+position = Vector2(55, 0)
 collision_layer = 8
 collision_mask = 16
 monitoring = false
 monitorable = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ray"]
-position = Vector2(26, 0)
+[node name="Beam" type="TextureRect" parent="Raygun/Ray"]
+offset_left = -13.0
+offset_top = -64.0
+offset_right = 115.0
+offset_bottom = 64.0
+scale = Vector2(0.1, 1)
+texture = ExtResource("6_t1pmg")
+stretch_mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Raygun/Ray"]
+position = Vector2(51, 0)
 shape = SubResource("RectangleShape2D_f1ud2")
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Raygun"]
+shape = SubResource("RectangleShape2D_8xgfg")
+disabled = true
+
+[node name="RayCast2D" type="RayCast2D" parent="Raygun"]
+target_position = Vector2(5000, 0)
+collision_mask = 5
 [node name="Sprite" type="Sprite2D" parent="Ray"]
 modulate = Color(0.392157, 1, 1, 0.392157)
 position = Vector2(26, 0)
