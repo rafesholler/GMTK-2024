@@ -22,8 +22,10 @@ shape = SubResource("RectangleShape2D_vqsjp")
 [node name="StateTimer" type="Timer" parent="."]
 one_shot = true
 
-[node name="WanderTimer" type="Timer" parent="."]
+[node name="SwapTimer" type="Timer" parent="."]
 one_shot = true
 
+[node name="WanderTimer" type="Timer" parent="."]
+
 [connection signal="timeout" from="StateTimer" to="." method="_on_state_timer_timeout"]
-[connection signal="timeout" from="WanderTimer" to="." method="_on_wander_timer_timeout"]
+[connection signal="timeout" from="SwapTimer" to="." method="_on_swap_timer_timeout"]

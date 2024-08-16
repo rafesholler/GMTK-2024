@@ -79,4 +79,5 @@ func _physics_process(delta: float) -> void:
 		#$Ray.monitorable = false
 
 	Global.player_vel = velocity
+	Global.player_pos = position
 	move_and_slide()

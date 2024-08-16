@@ -22,9 +22,12 @@ func _physics_process(delta: float) -> void:
 		States.WANDER:
 			velocity.x = move_toward(velocity.x, speed*direction, acceleration)
 			velocity.y = 0
-			if $WanderTimer.is_stopped():
-				$WanderTimer.start(randf_range(1, 2))
-			velocity.x += Global.player_vel.x
+			#if the fly goes past the player, turn around after a random period
+			if $SwapTimer.is_stopped():
+				if direction == -1 and position < Global.player_pos:
+					$SwapTimer.start(randf_range(.2, .8))
+				elif direction == 1 and position > Global.player_pos:
+					$SwapTimer.start(randf_range(.2, .8))
 		States.DIVE:
 			if velocity.y == 0:
 				state = States.WAIT
@@ -52,6 +55,6 @@ func _on_state_timer_timeout() -> void:
 			state = States.WANDER
 
 
-func _on_wander_timer_timeout() -> void:
+func _on_swap_timer_timeout() -> void:
 	if state == States.WANDER:
-		velocity.x *= -1
+		direction *= -1
