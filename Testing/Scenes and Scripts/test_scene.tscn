@@ -1,39 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://co8rsnuockbov"]
+[gd_scene load_steps=7 format=3 uid="uid://co8rsnuockbov"]
 
 [ext_resource type="Texture2D" uid="uid://c2q1xsr57u5cx" path="res://icon.svg" id="1_ayw5p"]
-[ext_resource type="Script" path="res://Testing/Scenes and Scripts/char.gd" id="1_radin"]
-[ext_resource type="Texture2D" uid="uid://40kmmh2tvgxh" path="res://Testing/Assets/walk2.png" id="2_knpsd"]
-[ext_resource type="Texture2D" uid="uid://du5636sm0vuik" path="res://Testing/Assets/walk1.png" id="3_ahddn"]
-[ext_resource type="Texture2D" uid="uid://wnwku7v1ymkt" path="res://Testing/Assets/New Piskel-3.png(17).png" id="4_fxa54"]
+[ext_resource type="PackedScene" uid="uid://ba400k2p67nde" path="res://characters/player.tscn" id="1_cjr63"]
 [ext_resource type="Script" path="res://Testing/Scenes and Scripts/object.gd" id="5_10vdb"]
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_hlh5c"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_knpsd")
-}],
-"loop": true,
-"name": &"Idle",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("3_ahddn")
-}, {
-"duration": 1.0,
-"texture": ExtResource("2_knpsd")
-}],
-"loop": true,
-"name": &"Walk",
-"speed": 5.0
-}]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_oiyk3"]
-size = Vector2(21.5, 25.5)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_f1ud2"]
-size = Vector2(32, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b1oc0"]
 size = Vector2(128, 128)
@@ -48,33 +17,7 @@ size = Vector2(1155, 20)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
-texture_filter = 1
-position = Vector2(0, -142)
-script = ExtResource("1_radin")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
-sprite_frames = SubResource("SpriteFrames_hlh5c")
-animation = &"Walk"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-position = Vector2(-0.75, 0)
-shape = SubResource("RectangleShape2D_oiyk3")
-
-[node name="Ray" type="Area2D" parent="CharacterBody2D"]
-collision_layer = 8
-collision_mask = 16
-monitoring = false
-monitorable = false
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/Ray"]
-position = Vector2(26, 0)
-shape = SubResource("RectangleShape2D_f1ud2")
-
-[node name="Sprite" type="Sprite2D" parent="CharacterBody2D/Ray"]
-modulate = Color(0.392157, 1, 1, 0.392157)
-position = Vector2(26, 0)
-texture = ExtResource("4_fxa54")
+[node name="Player" parent="." instance=ExtResource("1_cjr63")]
 
 [node name="Object" type="RigidBody2D" parent="."]
 position = Vector2(96, -106)
