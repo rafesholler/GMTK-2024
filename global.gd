@@ -1,6 +1,7 @@
 extends Node
 
 var ray_mode = "shrink"
+var player_vel = Vector2.ZERO
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
