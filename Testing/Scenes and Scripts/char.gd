@@ -6,7 +6,8 @@ extends CharacterBody2D
 @export var ACCEL = 8.0 
 @export var FRICT = 10.0
 @export var weight = 1
-
+@export var max_health = 3
+var health = max_health
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.

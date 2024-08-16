@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dphoxrha4p1ut"]
+
+[ext_resource type="Script" path="res://characters/components/movement.gd" id="1_g618q"]
+
+[node name="Movement" type="Node2D"]
+script = ExtResource("1_g618q")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
