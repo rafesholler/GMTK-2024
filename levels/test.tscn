@@ -1,0 +1,57 @@
+[gd_scene load_steps=5 format=3 uid="uid://dwh26jfdhlrjj"]
+
+[ext_resource type="PackedScene" uid="uid://ba400k2p67nde" path="res://characters/player.tscn" id="1_yi8i6"]
+[ext_resource type="PackedScene" uid="uid://dayf8vm13dcei" path="res://characters/tiny/ant.tscn" id="2_nymu2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jfm4d"]
+size = Vector2(514, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nsiol"]
+size = Vector2(275, 20)
+
+[node name="Test" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(247, 0)
+shape = SubResource("RectangleShape2D_jfm4d")
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D"]
+offset_left = -10.0
+offset_top = -10.0
+offset_right = 502.0
+offset_bottom = 14.0
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Ant" parent="." instance=ExtResource("2_nymu2")]
+position = Vector2(74, -234)
+
+[node name="Ant2" parent="." instance=ExtResource("2_nymu2")]
+position = Vector2(332, -262)
+
+[node name="Movement" parent="Ant2" index="0"]
+direction = 1
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(487, -105)
+rotation = -1.01578
+shape = SubResource("RectangleShape2D_nsiol")
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D2/CollisionShape2D"]
+offset_left = -139.0
+offset_top = -11.0
+offset_right = 138.0
+offset_bottom = 10.0
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("1_yi8i6")]
+position = Vector2(170, -220)
+collision_layer = 2
+
+[editable path="Ant"]
+[editable path="Ant/Movement"]
+[editable path="Ant2"]
+[editable path="Ant2/Movement"]
