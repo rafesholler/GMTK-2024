@@ -10,6 +10,7 @@ var scaling = false
 func _ready() -> void:
 	$Sprite2D.scale = Vector2(base_scale, base_scale)
 	$CollisionShape2D.scale = Vector2(base_scale, base_scale)
+	$Area2D/CollisionShape2D.scale = Vector2(base_scale, base_scale)
 	shrink_scale = base_scale - scale_limit
 	enlarge_scale = base_scale + scale_limit
 
