@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://co8rsnuockbov"]
+[gd_scene load_steps=10 format=3 uid="uid://co8rsnuockbov"]
 
 [ext_resource type="Texture2D" uid="uid://c2q1xsr57u5cx" path="res://icon.svg" id="1_ayw5p"]
 [ext_resource type="PackedScene" uid="uid://ba400k2p67nde" path="res://characters/player.tscn" id="1_cjr63"]
 [ext_resource type="PackedScene" uid="uid://4efd2udq0sdi" path="res://characters/tiny/fly.tscn" id="4_hqwsi"]
 [ext_resource type="Script" path="res://Testing/Scenes and Scripts/object.gd" id="5_10vdb"]
+[ext_resource type="PackedScene" uid="uid://b41lkefta34sk" path="res://levels/curved_path.tscn" id="5_dwv73"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b1oc0"]
 size = Vector2(128, 128)
@@ -14,11 +15,19 @@ size = Vector2(128, 128)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_owr45"]
 size = Vector2(1155, 20)
 
+[sub_resource type="Curve2D" id="Curve2D_oihtf"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -36, -12, -104.242, 43.1645, 104.242, -43.1645, 128, -62, 0, 0, 0, 0, 240, -227, 0, 0, 0, 0, 238, 3, 0, 0, 0, 0, -36, 7, 0, 0, 0, 0, -36, -12)
+}
+point_count = 6
+
 [node name="Test Scene" type="Node2D"]
 
-[node name="Camera2D" type="Camera2D" parent="."]
-
 [node name="Player" parent="." instance=ExtResource("1_cjr63")]
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(0, 284)
+scale = Vector2(2, 2)
 
 [node name="Object" type="RigidBody2D" parent="."]
 position = Vector2(245, -124)
@@ -52,5 +61,13 @@ shape = SubResource("RectangleShape2D_owr45")
 [node name="Fly" parent="." instance=ExtResource("4_hqwsi")]
 position = Vector2(-161, -275)
 
+[node name="CurvedPath" parent="." instance=ExtResource("5_dwv73")]
+position = Vector2(612, 2)
+
+[node name="Path2D" parent="CurvedPath" index="1"]
+curve = SubResource("Curve2D_oihtf")
+
 [connection signal="area_entered" from="Object/Area2D" to="Object" method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Object/Area2D" to="Object" method="_on_area_2d_area_exited"]
+
+[editable path="CurvedPath"]
