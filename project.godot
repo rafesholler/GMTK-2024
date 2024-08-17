@@ -54,3 +54,7 @@ Enlarge={
 2d_physics/layer_3="Enemy"
 2d_physics/layer_4="ScaleRay"
 2d_physics/layer_5="ScaleObj"
+
+[physics]
+
+common/physics_ticks_per_second=120
