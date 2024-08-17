@@ -1,12 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://ba400k2p67nde"]
+[gd_scene load_steps=12 format=3 uid="uid://ba400k2p67nde"]
 
 [ext_resource type="Script" path="res://characters/player.gd" id="1_djl0v"]
 [ext_resource type="Texture2D" uid="uid://cb5mtbc56by2e" path="res://Assets/Walk Cycle/Walk1.png" id="2_4yupr"]
 [ext_resource type="Texture2D" uid="uid://bbgwn75s7i1bw" path="res://Assets/Walk Cycle/Walk2.png" id="3_w4l2y"]
 [ext_resource type="Texture2D" uid="uid://bwybw5l8yply4" path="res://Assets/Walk Cycle/Walk3.png" id="4_jgvo4"]
 [ext_resource type="Texture2D" uid="uid://cvpf585w51acw" path="res://Assets/Ray/Gun.png" id="5_o02km"]
-[ext_resource type="Shader" path="res://Scenes and Scripts/Shader/raycolor.gdshader" id="6_61d73"]
-[ext_resource type="Texture2D" uid="uid://bakyl4rv6t6op" path="res://Assets/Ray/Beam.png" id="6_t1pmg"]
+[ext_resource type="Texture2D" uid="uid://sas5uds860o0" path="res://Assets/Ray/BlueBeam.png" id="6_1e746"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_hlh5c"]
 animations = [{
@@ -49,9 +48,6 @@ radius = 43.5
 height = 156.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_lbuqo"]
-shader = ExtResource("6_61d73")
-shader_parameter/use_grayscale = true
-shader_parameter/shift_color = Color(1, 1, 1, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f1ud2"]
 size = Vector2(12, 32)
@@ -61,7 +57,7 @@ size = Vector2(12, 32)
 [node name="Player" type="CharacterBody2D"]
 texture_filter = 1
 position = Vector2(0, -142)
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.4, 0.4)
 collision_mask = 17
 script = ExtResource("1_djl0v")
 ACCEL = 15.0
@@ -82,7 +78,7 @@ position = Vector2(0, 14)
 texture = ExtResource("5_o02km")
 
 [node name="Ray" type="Area2D" parent="Raygun"]
-position = Vector2(55, 0)
+position = Vector2(60, 0)
 collision_layer = 8
 collision_mask = 16
 monitoring = false
@@ -95,7 +91,7 @@ offset_top = -64.0
 offset_right = 115.0
 offset_bottom = 64.0
 scale = Vector2(0.1, 1)
-texture = ExtResource("6_t1pmg")
+texture = ExtResource("6_1e746")
 stretch_mode = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Raygun/Ray"]

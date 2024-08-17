@@ -10,6 +10,9 @@ extends CharacterBody2D
 @export var push_force = 50
 var health = max_health
 
+var blue_beam = preload("res://Assets/Ray/BlueBeam.png")
+var purple_beam = preload("res://Assets/Ray/PurpleBeam.png")
+
 func _physics_process(delta: float) -> void:
 	# Handle jump w/ jump cutting and buffer zone.
 
@@ -49,9 +52,9 @@ func _physics_process(delta: float) -> void:
 		$Raygun/Ray/CollisionShape2D.shape.size.x = $Raygun.global_position.distance_to($Raygun/RayCast2D.get_collision_point()) * 2
 		$Raygun/Ray/CollisionShape2D.position.x = $Raygun/Ray/CollisionShape2D.shape.size.x/2
 	else:
-		$Raygun/Ray/Beam.size.x = 20000
-		$Raygun/Ray/CollisionShape2D.shape.size.x = 20000
-		$Raygun/Ray/CollisionShape2D.position.x = 10000
+		$Raygun/Ray/Beam.size.x = 30000
+		$Raygun/Ray/CollisionShape2D.shape.size.x = 30000
+		$Raygun/Ray/CollisionShape2D.position.x = 15000
 	
 	if is_on_floor() and velocity.x == 0:
 		$AnimatedSprite2D.play("Idle")
@@ -71,12 +74,14 @@ func _physics_process(delta: float) -> void:
 		Global.ray_mode = "shrink"
 		$Raygun/Ray.visible = true
 		$Raygun/Ray.monitorable = true
-		$Raygun/Ray/Beam.material.set("shader_paramater/shift_color",Color(255,0,255,150))
+		$Raygun/Ray/Beam.texture = purple_beam
+		
 	elif Input.is_action_pressed("Enlarge"):
 		Global.ray_mode = "enlarge"
 		$Raygun/Ray.visible = true
 		$Raygun/Ray.monitorable = true
-		$Raygun/Ray/Beam.material.set("shader_paramater/shift_color",Color(0,255,255,150))
+		$Raygun/Ray/Beam.texture = blue_beam
+		
 	else:
 		$Raygun/Ray.visible = false
 		$Raygun/Ray.monitorable = false

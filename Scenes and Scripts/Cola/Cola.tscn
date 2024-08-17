@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://bienq4skh5lhh"]
+
+[ext_resource type="Texture2D" uid="uid://bbwcrv5vyaln8" path="res://Assets/World/Enviro/Cola.png" id="1_dnenx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b3ftc"]
+size = Vector2(238.112, 356.307)
+
+[node name="Cola" type="StaticBody2D"]
+position = Vector2(0, -197)
+scale = Vector2(1.7, 1.7)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_dnenx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-12, 64)
+rotation = -0.639663
+shape = SubResource("RectangleShape2D_b3ftc")
