@@ -28,7 +28,5 @@ func _physics_process(delta: float) -> void:
 		rotation = rot
 		if velocity.x != 0 and velocity.y == 0 and abs(rot) > 4*PI/9:
 			velocity = velocity.rotated(rot)
-		print(velocity)
-		print(rot)
 	
 	move_and_slide()
