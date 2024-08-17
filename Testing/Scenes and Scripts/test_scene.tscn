@@ -6,13 +6,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_owr45"]
 size = Vector2(1155, 20)
 
-[sub_resource type="Curve2D" id="Curve2D_oihtf"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, -36, -12, -104.242, 43.1645, 104.242, -43.1645, 128, -62, 0, 0, 0, 0, 240, -227, 0, 0, 0, 0, 238, 3, 0, 0, 0, 0, -36, 7, 0, 0, 0, 0, -36, -12)
-}
-point_count = 6
-
 [node name="Test Scene" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="Player" parent="." instance=ExtResource("1_cjr63")]
 weight = 400
