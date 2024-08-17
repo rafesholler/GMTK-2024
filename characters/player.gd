@@ -7,6 +7,7 @@ extends CharacterBody2D
 @export var FRICT = 10.0
 @export var weight = 1
 @export var max_health = 3
+@export var push_force = 50
 var health = max_health
 
 func _physics_process(delta: float) -> void:
@@ -79,7 +80,12 @@ func _physics_process(delta: float) -> void:
 	else:
 		$Raygun/Ray.visible = false
 		$Raygun/Ray.monitorable = false
-
+	
+	for i in get_slide_collision_count():
+		var c = get_slide_collision(i)
+		if c.get_collider() is RigidBody2D:
+			c.get_collider().apply_central_impulse(-c.get_normal() * push_force)
+	
 	Global.player_vel = velocity
 	Global.player_pos = position
 	move_and_slide()

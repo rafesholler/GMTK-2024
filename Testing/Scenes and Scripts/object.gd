@@ -27,6 +27,7 @@ func _physics_process(delta: float) -> void:
 				$Sprite2D.scale += Vector2(.1*delta, .1*delta)
 				$Area2D/CollisionShape2D.scale += Vector2(.1*delta, .1*delta)
 
+
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	scaling = true
 	
