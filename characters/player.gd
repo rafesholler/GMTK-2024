@@ -45,8 +45,12 @@ func _physics_process(delta: float) -> void:
 	$Raygun.rotation = position.angle_to_point(get_global_mouse_position())
 	if $Raygun/RayCast2D.is_colliding():
 		$Raygun/Ray/Beam.size.x = $Raygun.global_position.distance_to($Raygun/RayCast2D.get_collision_point()) * 20
+		$Raygun/Ray/CollisionShape2D.shape.size.x = $Raygun.global_position.distance_to($Raygun/RayCast2D.get_collision_point()) * 2
+		$Raygun/Ray/CollisionShape2D.position.x = $Raygun/Ray/CollisionShape2D.shape.size.x/2
 	else:
 		$Raygun/Ray/Beam.size.x = 20000
+		$Raygun/Ray/CollisionShape2D.shape.size.x = 20000
+		$Raygun/Ray/CollisionShape2D.position.x = 10000
 	
 	if is_on_floor() and velocity.x == 0:
 		$AnimatedSprite2D.play("Idle")
@@ -57,26 +61,25 @@ func _physics_process(delta: float) -> void:
 	
 	if get_global_mouse_position().x > self.position.x:
 		$AnimatedSprite2D.flip_h = false
-		#$Ray.position.x = 0
-		#$Ray/Sprite.flip_h = false
 	elif get_global_mouse_position().x < self.position.x:
 		$AnimatedSprite2D.flip_h = true
-		#$Ray.position.x = -53.5
-		#$Ray/Sprite.flip_h = true
 	
 	#Handle Ray
 		
 	if Input.is_action_pressed("Shrink"):
 		Global.ray_mode = "shrink"
-		#$Ray.visible = true
-		#$Ray.monitorable = true
+		$Raygun/Ray.visible = true
+		$Raygun/Ray.monitorable = true
+		$Raygun/Ray/Beam.material.set("shader_paramater/shift_color",Color(255,0,255,150))
 	elif Input.is_action_pressed("Enlarge"):
 		Global.ray_mode = "enlarge"
-		#$Ray.visible = true
-		#$Ray.monitorable = true
-	#else:
-		#$Ray.visible = false
-		#$Ray.monitorable = false
+		$Raygun/Ray.visible = true
+		$Raygun/Ray.monitorable = true
+		$Raygun/Ray/Beam.material.set("shader_paramater/shift_color",Color(0,255,255,150))
+	else:
+		$Raygun/Ray.visible = false
+		$Raygun/Ray.monitorable = false
 
 	Global.player_vel = velocity
+	Global.player_pos = position
 	move_and_slide()
