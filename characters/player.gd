@@ -70,12 +70,12 @@ func _physics_process(delta: float) -> void:
 		Global.ray_mode = "shrink"
 		$Raygun/Ray.visible = true
 		$Raygun/Ray.monitorable = true
-		$Raygun/Ray/Beam.material.set("shader_paramater/shift_color",Color(255,0,255,150))
+		$Raygun/Ray/Beam.material.set("shader_parameter/shift_color",Color(255,0,255,150))
 	elif Input.is_action_pressed("Enlarge"):
 		Global.ray_mode = "enlarge"
 		$Raygun/Ray.visible = true
 		$Raygun/Ray.monitorable = true
-		$Raygun/Ray/Beam.material.set("shader_paramater/shift_color",Color(0,255,255,150))
+		$Raygun/Ray/Beam.material.set("shader_parameter/shift_color",Color(0,255,255,150))
 	else:
 		$Raygun/Ray.visible = false
 		$Raygun/Ray.monitorable = false

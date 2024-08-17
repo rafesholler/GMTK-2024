@@ -2,7 +2,6 @@
 
 [ext_resource type="Texture2D" uid="uid://c2q1xsr57u5cx" path="res://icon.svg" id="1_ayw5p"]
 [ext_resource type="PackedScene" uid="uid://ba400k2p67nde" path="res://characters/player.tscn" id="1_cjr63"]
-[ext_resource type="PackedScene" uid="uid://4efd2udq0sdi" path="res://characters/tiny/fly.tscn" id="4_hqwsi"]
 [ext_resource type="Script" path="res://Testing/Scenes and Scripts/object.gd" id="5_10vdb"]
 [ext_resource type="PackedScene" uid="uid://b41lkefta34sk" path="res://levels/curved_path.tscn" id="5_dwv73"]
 
@@ -24,6 +23,7 @@ point_count = 6
 [node name="Test Scene" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_cjr63")]
+weight = 400
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(0, 284)
