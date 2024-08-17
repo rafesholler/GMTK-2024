@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://ds4bh4na250ag"]
+
+[ext_resource type="Shader" path="res://Scenes and Scripts/Shader/sway.gdshader" id="1_2fqbb"]
+[ext_resource type="Texture2D" uid="uid://cbrj87nuxgth0" path="res://Assets/World/Grass/Grass2.png" id="1_hbjlr"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_aodk4"]
+shader = ExtResource("1_2fqbb")
+shader_parameter/speed = 1.0
+shader_parameter/minStrength = 0.05
+shader_parameter/maxStrength = 0.15
+shader_parameter/strengthScale = 100.0
+shader_parameter/interval = 5.0
+shader_parameter/detail = 2.0
+shader_parameter/distortion = null
+shader_parameter/heightOffset = null
+shader_parameter/offset = 0.0
+
+[node name="Grass2" type="Sprite2D"]
+material = SubResource("ShaderMaterial_aodk4")
+position = Vector2(0, -256)
+scale = Vector2(2, 2)
+texture = ExtResource("1_hbjlr")

@@ -22,3 +22,4 @@ shape = SubResource("RectangleShape2D_owr45")
 
 [node name="Object" parent="." instance=ExtResource("2_fu4hc")]
 position = Vector2(267, -141)
+scale_speed = 0.5

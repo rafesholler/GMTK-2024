@@ -51,9 +51,9 @@ func _physics_process(delta: float) -> void:
 		$Raygun/Ray/CollisionShape2D.shape.size.x = $Raygun.global_position.distance_to($Raygun/RayCast2D.get_collision_point()) * 2
 		$Raygun/Ray/CollisionShape2D.position.x = $Raygun/Ray/CollisionShape2D.shape.size.x/2
 	else:
-		$Raygun/Ray/Beam.size.x = 20000
-		$Raygun/Ray/CollisionShape2D.shape.size.x = 20000
-		$Raygun/Ray/CollisionShape2D.position.x = 10000
+		$Raygun/Ray/Beam.size.x = 30000
+		$Raygun/Ray/CollisionShape2D.shape.size.x = 30000
+		$Raygun/Ray/CollisionShape2D.position.x = 15000
 	
 	if is_on_floor() and velocity.x == 0:
 		$AnimatedSprite2D.play("Idle")

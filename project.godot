@@ -17,8 +17,15 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-Global="*res://global.gd"
 PhantomCameraManager="*res://addons/phantom_camera/scripts/managers/phantom_camera_manager.gd"
+Global="*res://global.gd"
+
+[display]
+
+window/stretch/mode="viewport"
+window/layer_5="ScaleObj"
+window/layer_4="ScaleRay"
+window/layer_3="Enemy"
 
 [editor_plugins]
 
