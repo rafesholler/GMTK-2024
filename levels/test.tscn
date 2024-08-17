@@ -1,15 +1,38 @@
-[gd_scene load_steps=5 format=3 uid="uid://dwh26jfdhlrjj"]
+[gd_scene load_steps=7 format=3 uid="uid://dwh26jfdhlrjj"]
 
+[ext_resource type="PackedScene" uid="uid://b41lkefta34sk" path="res://levels/curved_path.tscn" id="1_svei7"]
 [ext_resource type="PackedScene" uid="uid://ba400k2p67nde" path="res://characters/player.tscn" id="1_yi8i6"]
 [ext_resource type="PackedScene" uid="uid://dayf8vm13dcei" path="res://characters/tiny/ant.tscn" id="2_nymu2"]
+
+[sub_resource type="Curve2D" id="Curve2D_2q6re"]
+_data = {
+"points": PackedVector2Array(-2.125, 1.5, 2.125, -1.5, -9, -9, 0, 0, 0, 0, -23, -9, 0, 0, 0, 0, -108, -16, 18.0733, 20.9796, -18.0733, -20.9796, -213, -72, 0, 0, 0, 0, -234, -165, 0, 0, 0, 0, -232, -286, 0, 0, 0, 0, -218, -401, -1.74842, 54.1721, 1.74842, -54.1721, -212, -462, -15.7204, 33.7119, 15.7204, -33.7119, -204, -555, -106.005, 20.9763, 106.005, -20.9763, -79, -600, 0, 0, 0, 0, -21, -608, 0, 0, 0, 0, 35, -608, 0, 0, 0, 0, 71, -608, 0, 0, 0, 0, 116, -608, 0, 0, 0, 0, 113, -703, 0, 0, 0, 0, -339, -668, 0, 0, 0, 0, -285, 24, 0, 0, 0, 0, -6, 13, 0, 0, 0, 0, 18, 13, 0, 0, 0, 0, 17, -9, 0, 0, 0, 0, -9, -9)
+}
+point_count = 21
+
+[sub_resource type="Curve2D" id="Curve2D_pw5cu"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 34, -8, 0, 0, 0, 0, 88, -15, -26.6876, 1.41459, 26.6876, -1.41459, 164, -24, 0, 0, 0, 0, 215, -33, -32.6833, 28.5045, 32.6833, -28.5045, 276, -72, -19.0703, 20.6595, 19.0703, -20.6595, 360, -153, -15.0106, 62.6454, 15.0106, -62.6454, 431, -260, -3.10781, 33.8739, 3.10781, -33.8739, 447, -347, 16.9706, 36.3391, -16.9706, -36.3391, 451, -571, 19.4383, 7.74879, -19.4383, -7.74879, 414, -612.703, 33.4935, -4.42826, -33.4935, 4.42826, 258, -617.692, 21.0335, 0.711898, -21.0335, -0.711898, 84, -608, 0, 0, 0, 0, -445, -608, 0, 0, 0, 0, -442, -706, 0, 0, 0, 0, 529, -656, 0, 0, 0, 0, 488, 37, 0, 0, 0, 0, -25, 26, 0, 0, 0, 0, -15, -8, 0, 0, 0, 0, 16, -8, 0, 0, 0, 0, 34, -8)
+}
+point_count = 20
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jfm4d"]
 size = Vector2(514, 20)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_nsiol"]
-size = Vector2(275, 20)
-
 [node name="Test" type="Node2D"]
+
+[node name="CurvedPath2" parent="." instance=ExtResource("1_svei7")]
+
+[node name="Path2D" parent="CurvedPath2" index="1"]
+curve = SubResource("Curve2D_2q6re")
+
+[node name="CurvedPath" parent="." instance=ExtResource("1_svei7")]
+position = Vector2(503, -1)
+
+[node name="Path2D" parent="CurvedPath" index="1"]
+position = Vector2(3, 3)
+scale = Vector2(1, 1.00212)
+curve = SubResource("Curve2D_pw5cu")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
@@ -23,30 +46,21 @@ offset_top = -10.0
 offset_right = 502.0
 offset_bottom = 14.0
 
-[node name="Camera2D" type="Camera2D" parent="."]
-
 [node name="Ant" parent="." instance=ExtResource("2_nymu2")]
-position = Vector2(74, -234)
+position = Vector2(75, -23)
+direction = -1
 
 [node name="Ant2" parent="." instance=ExtResource("2_nymu2")]
-position = Vector2(332, -262)
-
-[node name="StaticBody2D2" type="StaticBody2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
-position = Vector2(487, -105)
-rotation = -1.01578
-shape = SubResource("RectangleShape2D_nsiol")
-
-[node name="ColorRect" type="ColorRect" parent="StaticBody2D2/CollisionShape2D"]
-offset_left = -139.0
-offset_top = -11.0
-offset_right = 138.0
-offset_bottom = 10.0
+position = Vector2(378, -23)
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("1_yi8i6")]
-position = Vector2(170, -220)
+position = Vector2(197, -78)
 collision_layer = 2
 
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+zoom = Vector2(0.5, 0.5)
+
+[editable path="CurvedPath2"]
+[editable path="CurvedPath"]
 [editable path="Ant"]
 [editable path="Ant2"]
