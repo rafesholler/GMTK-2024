@@ -1,14 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://co8rsnuockbov"]
+[gd_scene load_steps=4 format=3 uid="uid://co8rsnuockbov"]
 
-[ext_resource type="Texture2D" uid="uid://c2q1xsr57u5cx" path="res://icon.svg" id="1_ayw5p"]
 [ext_resource type="PackedScene" uid="uid://ba400k2p67nde" path="res://characters/player.tscn" id="1_cjr63"]
-[ext_resource type="Script" path="res://Testing/Scenes and Scripts/object.gd" id="5_10vdb"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_b1oc0"]
-size = Vector2(128, 128)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_elqg1"]
-size = Vector2(128, 128)
+[ext_resource type="PackedScene" uid="uid://bturint3egu10" path="res://Testing/scaleable_object.tscn" id="2_fu4hc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_owr45"]
 size = Vector2(1155, 20)
@@ -20,28 +13,6 @@ size = Vector2(1155, 20)
 [node name="Player" parent="." instance=ExtResource("1_cjr63")]
 weight = 400
 
-[node name="Object" type="RigidBody2D" parent="."]
-position = Vector2(245, -124)
-collision_mask = 7
-script = ExtResource("5_10vdb")
-
-[node name="Sprite2D" type="Sprite2D" parent="Object"]
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_ayw5p")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Object"]
-scale = Vector2(0.5, 0.5)
-shape = SubResource("RectangleShape2D_b1oc0")
-
-[node name="Area2D" type="Area2D" parent="Object"]
-collision_layer = 16
-collision_mask = 8
-monitorable = false
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Object/Area2D"]
-scale = Vector2(0.5, 0.5)
-shape = SubResource("RectangleShape2D_elqg1")
-
 [node name="Floor" type="StaticBody2D" parent="."]
 collision_mask = 23
 
@@ -49,5 +20,5 @@ collision_mask = 23
 position = Vector2(-1.5, 0)
 shape = SubResource("RectangleShape2D_owr45")
 
-[connection signal="area_entered" from="Object/Area2D" to="Object" method="_on_area_2d_area_entered"]
-[connection signal="area_exited" from="Object/Area2D" to="Object" method="_on_area_2d_area_exited"]
+[node name="Object" parent="." instance=ExtResource("2_fu4hc")]
+position = Vector2(267, -141)

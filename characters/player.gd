@@ -9,6 +9,9 @@ extends CharacterBody2D
 @export var max_health = 3
 var health = max_health
 
+var blue_beam = preload("res://Assets/Ray/BlueBeam.png")
+var purple_beam = preload("res://Assets/Ray/PurpleBeam.png")
+
 func _physics_process(delta: float) -> void:
 	# Handle jump w/ jump cutting and buffer zone.
 
@@ -70,12 +73,14 @@ func _physics_process(delta: float) -> void:
 		Global.ray_mode = "shrink"
 		$Raygun/Ray.visible = true
 		$Raygun/Ray.monitorable = true
-		$Raygun/Ray/Beam.material.set("shader_parameter/shift_color",Color(255,0,255,150))
+		$Raygun/Ray/Beam.texture = purple_beam
+		
 	elif Input.is_action_pressed("Enlarge"):
 		Global.ray_mode = "enlarge"
 		$Raygun/Ray.visible = true
 		$Raygun/Ray.monitorable = true
-		$Raygun/Ray/Beam.material.set("shader_parameter/shift_color",Color(0,255,255,150))
+		$Raygun/Ray/Beam.texture = blue_beam
+		
 	else:
 		$Raygun/Ray.visible = false
 		$Raygun/Ray.monitorable = false
