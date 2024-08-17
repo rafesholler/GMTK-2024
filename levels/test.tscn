@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://dwh26jfdhlrjj"]
+[gd_scene load_steps=8 format=3 uid="uid://dwh26jfdhlrjj"]
 
 [ext_resource type="PackedScene" uid="uid://b41lkefta34sk" path="res://levels/curved_path.tscn" id="1_svei7"]
 [ext_resource type="PackedScene" uid="uid://ba400k2p67nde" path="res://characters/player.tscn" id="1_yi8i6"]
 [ext_resource type="PackedScene" uid="uid://dayf8vm13dcei" path="res://characters/tiny/ant.tscn" id="2_nymu2"]
+[ext_resource type="PackedScene" uid="uid://bturint3egu10" path="res://Testing/scaleable_object.tscn" id="4_khk0t"]
 
 [sub_resource type="Curve2D" id="Curve2D_2q6re"]
 _data = {
@@ -59,6 +60,10 @@ collision_layer = 2
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
 zoom = Vector2(0.5, 0.5)
+
+[node name="Object" parent="." instance=ExtResource("4_khk0t")]
+position = Vector2(310, -164)
+revert = true
 
 [editable path="CurvedPath2"]
 [editable path="CurvedPath"]

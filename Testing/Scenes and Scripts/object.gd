@@ -19,6 +19,7 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	if scaling:
+		$RevertTimer.stop()
 		if Global.ray_mode == "shrink":
 			if not($CollisionShape2D.scale.x < shrink_scale) :
 				$Sprite2D.material.set("shader_parameter/width", 4)
@@ -44,11 +45,11 @@ func _physics_process(delta: float) -> void:
 	
 	#reverts the object back to its original size over time if it hasn't been modified recently (based off revert_timer)
 	if reverting:
-		if $Sprite2D.scale > base_scale:
+		if $Sprite2D.scale.x > base_scale:
 			$CollisionShape2D.scale -= Vector2(.1*delta, .1*delta)
 			$Sprite2D.scale -= Vector2(.1*delta, .1*delta)
 			$Area2D/CollisionShape2D.scale -= Vector2(.1*delta, .1*delta)
-		elif $Sprite2D.scale < base_scale:
+		elif $Sprite2D.scale.x < base_scale:
 			$CollisionShape2D.scale += Vector2(.1*delta, .1*delta)
 			$Sprite2D.scale += Vector2(.1*delta, .1*delta)
 			$Area2D/CollisionShape2D.scale += Vector2(.1*delta, .1*delta)
