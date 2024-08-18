@@ -22,10 +22,11 @@ Global="*res://global.gd"
 
 [display]
 
-window/stretch/mode="viewport"
-window/layer_5="ScaleObj"
-window/layer_4="ScaleRay"
-window/layer_3="Enemy"
+window/layer_5=""
+window/layer_4=""
+window/layer_3=""
+window/layer_2="Player"
+window/layer_1="Environment"
 
 [editor_plugins]
 
