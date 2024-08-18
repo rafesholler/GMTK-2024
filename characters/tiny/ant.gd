@@ -1,8 +1,9 @@
 extends CharacterBody2D
+class_name Ant
 
 @export var speed : float
 @export var acceleration : float
-@export var direction = 1 #-1 is left, 1 is right
+@export_enum("Left:-1", "Right:1") var direction : int
 
 func _ready() -> void:
 	$RayCast2D.position.x *= direction

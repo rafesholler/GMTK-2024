@@ -1,10 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://b41lkefta34sk"]
+[gd_scene load_steps=3 format=3 uid="uid://b41lkefta34sk"]
 
 [ext_resource type="Script" path="res://levels/curved_path.gd" id="1_y1t2v"]
+[ext_resource type="Texture2D" uid="uid://bjb3ennruyulu" path="res://Assets/World/Ground/Untitled_Artwork-1 17.png" id="2_w8nd0"]
 
 [node name="CurvedPath" type="StaticBody2D"]
 script = ExtResource("1_y1t2v")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+texture = ExtResource("2_w8nd0")
 
 [node name="Path2D" type="Path2D" parent="."]
