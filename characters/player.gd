@@ -101,6 +101,6 @@ func _physics_process(delta: float) -> void:
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("Pick_Place") and inventory:
-		inventory.position = get_global_mouse_position()
+		inventory.global_position = get_global_mouse_position()
 		get_parent().add_child(inventory)
 		Global.remove_inventory()
