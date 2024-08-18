@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://ba400k2p67nde"]
+[gd_scene load_steps=12 format=3 uid="uid://ba400k2p67nde"]
 
 [ext_resource type="Script" path="res://characters/player.gd" id="1_djl0v"]
 [ext_resource type="Texture2D" uid="uid://cb5mtbc56by2e" path="res://Assets/Walk Cycle/Walk1.png" id="2_4yupr"]
@@ -53,9 +53,6 @@ height = 156.0
 size = Vector2(12, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8xgfg"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_4qre1"]
-size = Vector2(90, 155)
 
 [node name="Player" type="CharacterBody2D"]
 texture_filter = 1
@@ -116,12 +113,3 @@ one_shot = true
 [node name="JumpBufferTimer" type="Timer" parent="."]
 process_callback = 0
 one_shot = true
-
-[node name="RigidBody2D" type="RigidBody2D" parent="."]
-collision_layer = 2
-freeze = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
-position = Vector2(1.78814e-06, 37.5)
-scale = Vector2(1, 1)
-shape = SubResource("RectangleShape2D_4qre1")

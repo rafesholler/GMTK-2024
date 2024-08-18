@@ -21,7 +21,6 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	mass = $CollisionShape2D.scale.x * 2
-	print(mass)
 	if scaling:
 		$RevertTimer.stop()
 		if Global.ray_mode == "shrink":
