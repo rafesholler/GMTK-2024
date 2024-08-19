@@ -1,8 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://bturint3egu10"]
+[gd_scene load_steps=8 format=3 uid="uid://bturint3egu10"]
 
 [ext_resource type="Shader" path="res://Scenes and Scripts/Shader/outline.gdshader" id="1_6craw"]
 [ext_resource type="Script" path="res://Testing/Scenes and Scripts/object.gd" id="1_e8gyx"]
 [ext_resource type="Texture2D" uid="uid://c2q1xsr57u5cx" path="res://icon.svg" id="2_r47v4"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_fjvir"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_qg4lj"]
 shader = ExtResource("1_6craw")
@@ -13,13 +15,14 @@ shader_parameter/inside = true
 shader_parameter/add_margins = true
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b1oc0"]
-size = Vector2(128, 80)
+size = Vector2(128, 128)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_elqg1"]
-size = Vector2(128, 128)
+size = Vector2(142, 140)
 
 [node name="Object" type="RigidBody2D"]
 collision_mask = 7
+physics_material_override = SubResource("PhysicsMaterial_fjvir")
 script = ExtResource("1_e8gyx")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -37,6 +40,7 @@ collision_mask = 8
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-0.5, 0)
 scale = Vector2(0.5, 0.5)
 shape = SubResource("RectangleShape2D_elqg1")
 
@@ -45,4 +49,6 @@ one_shot = true
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]
 [connection signal="timeout" from="RevertTimer" to="." method="_on_revert_timer_timeout"]

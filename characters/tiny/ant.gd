@@ -1,9 +1,10 @@
 extends CharacterBody2D
+class_name Ant
 
 @export var speed : float
 @export var acceleration : float
-@export var direction = 1 #-1 is left, 1 is right
-@export var push_force = 100 #Note: the push force of the player is 50
+@export_enum("Left:-1", "Right:1") var direction : int
+@export var push_force = 100 #note: the player's push force is 50
 func _ready() -> void:
 	$RayCast2D.position.x *= direction
 

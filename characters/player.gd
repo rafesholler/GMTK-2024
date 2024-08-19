@@ -10,12 +10,15 @@ extends CharacterBody2D
 @export var push_force = 50
 var health = max_health
 
+var inventory : Scalable
+
 var blue_beam = preload("res://Assets/Ray/BlueBeam.png")
 var purple_beam = preload("res://Assets/Ray/PurpleBeam.png")
 
 func _physics_process(delta: float) -> void:
+	inventory = Global.player_inv
+	
 	# Handle jump w/ jump cutting and buffer zone.
-
 	if Input.is_action_just_pressed("Jump") and is_on_floor():
 		$JumpCutTimer.start(.2)
 	
@@ -94,3 +97,16 @@ func _physics_process(delta: float) -> void:
 	Global.player_vel = velocity
 	Global.player_pos = position
 	move_and_slide()
+	
+	var push_force = 80.0
+	
+	for i in get_slide_collision_count():
+		var c = get_slide_collision(i)
+		if c.get_collider() is RigidBody2D:
+			c.get_collider().apply_central_impulse(-c.get_normal() * push_force)
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("Pick_Place") and inventory:
+		inventory.global_position = get_global_mouse_position()
+		get_parent().add_child(inventory)
+		Global.remove_inventory()

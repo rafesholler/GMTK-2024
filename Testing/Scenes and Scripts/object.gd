@@ -1,4 +1,5 @@
 extends RigidBody2D
+class_name Scalable
 
 @export var shrink_limit = .3
 @export var enlarge_limit = .5
@@ -8,6 +9,9 @@ extends RigidBody2D
 @export var revert_timer := 3
 @export var base_mass = 1
 @export var push_force = 100 #quick fix. don't leave it like this
+@export var pocketable := false
+@export var pocket_texture : Texture2D
+
 var shrink_scale
 var enlarge_scale
 
@@ -15,16 +19,24 @@ var enlarge_scale
 var scaling = false
 var reverting = false
 
+var mouse_hovering = false
+
+var scale_on_ready = true
+
 func _ready() -> void:
-	$Sprite2D.scale = Vector2(base_scale, base_scale)
-	$CollisionShape2D.scale = Vector2(base_scale, base_scale)
-	$Area2D/CollisionShape2D.scale = Vector2(base_scale, base_scale)
 	shrink_scale = base_scale - shrink_limit
 	enlarge_scale = base_scale + enlarge_limit
 	mass = base_mass * $CollisionShape2D.scale.x #note: this is in case we want to have a scaled up object that you need to scale down or smth 
 
 func _physics_process(delta: float) -> void:
 	
+	if scale_on_ready:
+		$Sprite2D.scale = Vector2(base_scale, base_scale)
+		$CollisionShape2D.scale = Vector2(base_scale, base_scale)
+		$Area2D/CollisionShape2D.scale = Vector2(base_scale, base_scale)
+
+func _physics_process(delta: float) -> void:
+	mass = $CollisionShape2D.scale.x * 2
 	if scaling:
 		$RevertTimer.stop()
 		if Global.ray_mode == "shrink":
@@ -70,6 +82,18 @@ func _physics_process(delta: float) -> void:
 		#if c.get_collider() is RigidBody2D:
 			#c.get_collider().apply_central_impulse(-c.get_normal() * push_force)
 	
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("Pick_Place"):
+		if mouse_hovering and not Global.player_inv and $Sprite2D.scale.x <= shrink_scale:
+			var new_node = duplicate(7)
+			new_node.get_node("CollisionShape2D").scale = $CollisionShape2D.scale
+			new_node.get_node("Sprite2D").scale = $Sprite2D.scale
+			new_node.get_node("Area2D/CollisionShape2D").scale = $Area2D/CollisionShape2D.scale
+			new_node.scale_on_ready = false
+			Global.add_inventory(new_node)
+			queue_free()
+
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	scaling = true
 	reverting = false
@@ -80,3 +104,11 @@ func _on_area_2d_area_exited(area: Area2D) -> void:
 
 func _on_revert_timer_timeout() -> void:
 	reverting = true
+
+
+func _on_area_2d_mouse_entered() -> void:
+	mouse_hovering = true
+
+
+func _on_area_2d_mouse_exited() -> void:
+	mouse_hovering = false
