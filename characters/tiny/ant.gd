@@ -3,7 +3,7 @@ extends CharacterBody2D
 @export var speed : float
 @export var acceleration : float
 @export var direction = 1 #-1 is left, 1 is right
-
+@export var push_force = 100 #Note: the push force of the player is 50
 func _ready() -> void:
 	$RayCast2D.position.x *= direction
 
@@ -29,4 +29,8 @@ func _physics_process(delta: float) -> void:
 		if velocity.x != 0 and velocity.y == 0 and abs(rot) > 4*PI/9:
 			velocity = velocity.rotated(rot)
 	
+	for i in get_slide_collision_count():
+		var c = get_slide_collision(i)
+		if c.get_collider() is RigidBody2D:
+			c.get_collider().apply_central_impulse(-c.get_normal() * push_force)
 	move_and_slide()
