@@ -1,9 +1,25 @@
-[gd_scene load_steps=3 format=3 uid="uid://dayf8vm13dcei"]
+[gd_scene load_steps=6 format=3 uid="uid://dayf8vm13dcei"]
 
 [ext_resource type="Script" path="res://characters/tiny/ant.gd" id="1_uat43"]
+[ext_resource type="Texture2D" uid="uid://3rny35mxoikx" path="res://Assets/Ant/Untitled_Artwork 217.png" id="2_jnsp8"]
+[ext_resource type="Texture2D" uid="uid://djqwcq6sl2fe0" path="res://Assets/Ant/Untitled_Artwork 218.png" id="3_8iy5o"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wpbp5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_jnsp8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_8iy5o")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hp3f3"]
-size = Vector2(40, 24)
+size = Vector2(48.1109, 29)
 
 [node name="Ant" type="CharacterBody2D"]
 scale = Vector2(0.997695, 1)
@@ -13,13 +29,21 @@ script = ExtResource("1_uat43")
 speed = 200.0
 acceleration = 10.0
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -5)
+scale = Vector2(0.2, 0.2)
+sprite_frames = SubResource("SpriteFrames_wpbp5")
+frame_progress = 0.67517
+
 [node name="ColorRect" type="ColorRect" parent="."]
+visible = false
 offset_left = -20.0
 offset_top = -12.0
 offset_right = 20.0
 offset_bottom = 12.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1.00231, 2.5)
 shape = SubResource("RectangleShape2D_hp3f3")
 
 [node name="RayCast2D" type="RayCast2D" parent="."]

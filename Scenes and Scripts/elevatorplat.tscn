@@ -1,8 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://blspv8sfneapu"]
+[gd_scene load_steps=5 format=3 uid="uid://blspv8sfneapu"]
 
-[ext_resource type="Texture2D" uid="uid://dh817c8fsg0jn" path="res://Assets/World/Enviro/Untitled_Artwork 213.png" id="1_65whx"]
-[ext_resource type="Script" path="res://Scenes and Scripts/elevatorplat.gd" id="1_h87pn"]
-[ext_resource type="Texture2D" uid="uid://b2m4kntj76u35" path="res://Assets/World/Enviro/Untitled_Artwork 214.png" id="3_jcdcp"]
+[ext_resource type="Texture2D" uid="uid://b75u0uroosaef" path="res://Assets/World/Enviro/Untitled_Artwork 216.png" id="2_5nah5"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_k66xf"]
 
@@ -16,7 +14,6 @@ node_a = NodePath("StaticBody2D")
 node_b = NodePath("RigidBody2D")
 length = 200.0
 initial_offset = 48.0
-script = ExtResource("1_h87pn")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
@@ -34,15 +31,8 @@ constant_force = Vector2(0, -1200)
 [node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
 z_index = 1
 position = Vector2(-1.90735e-06, 0)
-texture = ExtResource("1_65whx")
+texture = ExtResource("2_5nah5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
 position = Vector2(-0.5, -13)
 shape = SubResource("RectangleShape2D_7hbcd")
-
-[node name="String" type="TextureRect" parent="."]
-offset_left = -32.0
-offset_right = 32.0
-offset_bottom = 64.0
-scale = Vector2(1, 0.1)
-texture = ExtResource("3_jcdcp")

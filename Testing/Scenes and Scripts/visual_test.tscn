@@ -226,8 +226,6 @@ shrink_limit = 0.1
 enlarge_limit = 0.9
 base_scale = 1.0
 scale_speed = 0.2
-revert = null
-revert_timer = null
 
 [node name="Sprite2D" parent="Scalable/Object" index="0"]
 texture = ExtResource("23_kg32y")
