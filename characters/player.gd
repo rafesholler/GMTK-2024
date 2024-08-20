@@ -3,10 +3,11 @@ extends CharacterBody2D
 
 @export var SPEED = 300.0
 @export var JUMP_VEL = -500.0
-@export var ACCEL = 8.0 
+@export var ACCEL = 0.0 
 @export var FRICT = 10.0
 @export var weight = 1
 @export var max_health = 3
+@export var push_force = 5
 var health = max_health
 
 var inventory : Scalable
@@ -87,18 +88,17 @@ func _physics_process(delta: float) -> void:
 	else:
 		$Raygun/Ray.visible = false
 		$Raygun/Ray.monitorable = false
-
-	Global.player_vel = velocity
-	Global.player_pos = position
-	move_and_slide()
-	
-	var push_force = 80.0
 	
 	for i in get_slide_collision_count():
 		var c = get_slide_collision(i)
 		if c.get_collider() is RigidBody2D:
-			c.get_collider().apply_central_impulse(-c.get_normal() * push_force)
+			c.get_collider().apply_impulse(-c.get_normal() * push_force, Vector2(sign(velocity.x), 1))
+			#c.get_collider().apply_central_impulse(-c.get_normal() * push_force)
 
+	Global.player_vel = velocity
+	Global.player_pos = position
+	move_and_slide()	
+	
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("Pick_Place") and inventory:
 		inventory.global_position = get_global_mouse_position()

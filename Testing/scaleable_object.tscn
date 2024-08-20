@@ -24,6 +24,7 @@ size = Vector2(142, 140)
 collision_mask = 7
 physics_material_override = SubResource("PhysicsMaterial_fjvir")
 script = ExtResource("1_e8gyx")
+push_force = 0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_qg4lj")
@@ -41,7 +42,6 @@ collision_mask = 8
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-0.5, 0)
 scale = Vector2(0.5, 0.5)
 shape = SubResource("RectangleShape2D_elqg1")
 
