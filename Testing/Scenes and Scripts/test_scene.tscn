@@ -25,12 +25,13 @@ shape = SubResource("RectangleShape2D_owr45")
 
 [node name="Object" parent="." instance=ExtResource("2_fu4hc")]
 position = Vector2(-434, -8)
-shrink_limit = 0.15
 physics_material_override = null
+shrink_limit = 0.15
 enlarge_limit = 0.8
 base_scale = 0.3
 scale_speed = 0.5
 revert = null
 revert_timer = null
+push_force = 100
 
 [node name="GrooveJoint2D" parent="." instance=ExtResource("3_8pyde")]

@@ -257,33 +257,50 @@ layer_7/tile_data = PackedInt32Array(-196533, 10, 0, -130997, 11, 0, -65461, 9, 
 [node name="Object" parent="Scalables" instance=ExtResource("2_sueb5")]
 position = Vector2(742, 122)
 scale_speed = 0.3
+push_force = 100
 
 [node name="Sprite2D" parent="Scalables/Object" index="0"]
 texture = ExtResource("24_dthdf")
 
+[node name="CollisionShape2D" parent="Scalables/Object/Area2D" index="0"]
+position = Vector2(-0.5, 0)
+
 [node name="Object2" parent="Scalables" instance=ExtResource("2_sueb5")]
 position = Vector2(2514, 131)
 scale_speed = 0.3
+push_force = 100
 
 [node name="Sprite2D" parent="Scalables/Object2" index="0"]
 texture = ExtResource("24_dthdf")
 
+[node name="CollisionShape2D" parent="Scalables/Object2/Area2D" index="0"]
+position = Vector2(-0.5, 0)
+
 [node name="Object3" parent="Scalables" instance=ExtResource("2_sueb5")]
 position = Vector2(1859, 18)
 scale_speed = 0.3
+push_force = 100
 
 [node name="Sprite2D" parent="Scalables/Object3" index="0"]
 texture = ExtResource("24_dthdf")
 
+[node name="CollisionShape2D" parent="Scalables/Object3/Area2D" index="0"]
+position = Vector2(-0.5, 0)
+
 [node name="Object4" parent="Scalables" instance=ExtResource("2_sueb5")]
 position = Vector2(2241, 8)
 scale_speed = 0.3
+push_force = 100
 
 [node name="Sprite2D" parent="Scalables/Object4" index="0"]
 texture = ExtResource("24_dthdf")
 
+[node name="CollisionShape2D" parent="Scalables/Object4/Area2D" index="0"]
+position = Vector2(-0.5, 0)
+
 [node name="Object6" parent="Scalables" instance=ExtResource("2_sueb5")]
 position = Vector2(3054, -252)
+push_force = 100
 
 [node name="Sprite2D" parent="Scalables/Object6" index="0"]
 texture = ExtResource("24_m55ao")
@@ -292,12 +309,14 @@ texture = ExtResource("24_m55ao")
 shape = SubResource("CircleShape2D_t31lu")
 
 [node name="CollisionShape2D" parent="Scalables/Object6/Area2D" index="0"]
+position = Vector2(-0.5, 0)
 shape = SubResource("CircleShape2D_wm4mk")
 
 [node name="Object5" parent="Scalables" instance=ExtResource("2_sueb5")]
 position = Vector2(6018, 514)
 mass = 50.0
 scale_speed = 0.3
+push_force = 100
 
 [node name="Sprite2D" parent="Scalables/Object5" index="0"]
 texture = ExtResource("24_dthdf")
@@ -307,13 +326,13 @@ position = Vector2(0, 0)
 shape = SubResource("RectangleShape2D_tnolu")
 
 [node name="CollisionShape2D" parent="Scalables/Object5/Area2D" index="0"]
-position = Vector2(0, 0)
 shape = SubResource("RectangleShape2D_50y6r")
 
 [node name="Object7" parent="Scalables" instance=ExtResource("2_sueb5")]
 position = Vector2(6151, 514)
 mass = 50.0
 scale_speed = 0.3
+push_force = 100
 
 [node name="Sprite2D" parent="Scalables/Object7" index="0"]
 texture = ExtResource("24_dthdf")
@@ -323,13 +342,13 @@ position = Vector2(0, 0)
 shape = SubResource("RectangleShape2D_tnolu")
 
 [node name="CollisionShape2D" parent="Scalables/Object7/Area2D" index="0"]
-position = Vector2(0, 0)
 shape = SubResource("RectangleShape2D_50y6r")
 
 [node name="Object8" parent="Scalables" instance=ExtResource("2_sueb5")]
 position = Vector2(6279, 514)
 mass = 50.0
 scale_speed = 0.3
+push_force = 100
 
 [node name="Sprite2D" parent="Scalables/Object8" index="0"]
 texture = ExtResource("24_dthdf")
@@ -339,7 +358,6 @@ position = Vector2(0, 0)
 shape = SubResource("RectangleShape2D_tnolu")
 
 [node name="CollisionShape2D" parent="Scalables/Object8/Area2D" index="0"]
-position = Vector2(0, 0)
 shape = SubResource("RectangleShape2D_50y6r")
 
 [node name="Player" parent="." instance=ExtResource("3_wpv4w")]

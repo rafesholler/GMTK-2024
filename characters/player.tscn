@@ -69,7 +69,6 @@ animation = &"Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 35)
-scale = Vector2(1, 1)
 shape = SubResource("CapsuleShape2D_l8hb8")
 
 [node name="Raygun" type="CharacterBody2D" parent="."]

@@ -12,7 +12,11 @@ func _ready() -> void:
 	$RayCast2D.position.x *= direction
 
 func _physics_process(delta: float) -> void:
-
+	if direction > 0:
+		$AnimatedSprite2D.flip_h = true
+	if direction < 0:
+		$AnimatedSprite2D.flip_h = false
+	
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
