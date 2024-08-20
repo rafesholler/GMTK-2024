@@ -7,7 +7,7 @@ extends CharacterBody2D
 @export var FRICT = 10.0
 @export var weight = 1
 @export var max_health = 3
-@export var push_force = 5
+@export var push_force = 10
 var health = max_health
 
 var inventory : Scalable

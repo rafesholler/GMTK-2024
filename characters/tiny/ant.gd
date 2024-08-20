@@ -4,7 +4,7 @@ class_name Ant
 @export var speed : float
 @export var acceleration : float
 @export_enum("Left:-1", "Right:1") var direction : int
-@export var max_push_force = 10 #note: the player's push force is 50
+@export var max_push_force = 20 #note: the player's push force is 50
 var push_force = 0
 var stopped = false
 var timer = 0
