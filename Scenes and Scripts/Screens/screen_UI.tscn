@@ -1,40 +1,150 @@
-[gd_scene load_steps=2 format=3 uid="uid://uklixbql3iub"]
+[gd_scene load_steps=27 format=3 uid="uid://uklixbql3iub"]
 
 [ext_resource type="Script" path="res://Scenes and Scripts/Screens/screen_UI.gd" id="1_erg1g"]
+[ext_resource type="FontFile" uid="uid://bl7vaqob4hp8v" path="res://Assets/Font/honchokomono-normal-regular.otf" id="2_trcy7"]
+[ext_resource type="Texture2D" uid="uid://0huq4fehc1l4" path="res://Assets/World/ColorTile.png" id="2_y0tw8"]
+[ext_resource type="Texture2D" uid="uid://bjb3ennruyulu" path="res://Assets/World/Ground/Untitled_Artwork-1 17.png" id="3_nbd4m"]
+[ext_resource type="Texture2D" uid="uid://bexhs3d5d323g" path="res://Assets/World/Ground/Untitled_Artwork-2 16.png" id="4_06pe7"]
+[ext_resource type="Texture2D" uid="uid://c6e5qxueq5xni" path="res://Assets/World/Ground/Untitled_Artwork-3 10.png" id="5_g8w5r"]
+[ext_resource type="Texture2D" uid="uid://blr8c6h3ptvuy" path="res://Assets/World/Ground/Untitled_Artwork-4 6.png" id="6_lke22"]
+[ext_resource type="Texture2D" uid="uid://bb145xpa8ww3r" path="res://Assets/World/Ground/Untitled_Artwork-5 4.png" id="7_jjnll"]
+[ext_resource type="Texture2D" uid="uid://5o55rrinth8q" path="res://Assets/World/Ground/Untitled_Artwork 208.png" id="8_nj4g1"]
+[ext_resource type="Texture2D" uid="uid://dqcfcegtaomwj" path="res://Assets/World/Enviro/Untitled_Artwork 211.png" id="9_dtool"]
+[ext_resource type="PackedScene" uid="uid://bmmr5fmpu4wo" path="res://Scenes and Scripts/Grass/grass_1.tscn" id="10_ixlvt"]
+[ext_resource type="PackedScene" uid="uid://ds4bh4na250ag" path="res://Scenes and Scripts/Grass/grass_2.tscn" id="11_g2kym"]
+[ext_resource type="PackedScene" uid="uid://bd33s0osnuch5" path="res://Scenes and Scripts/Grass/grass_3.tscn" id="12_8ktev"]
+
+[sub_resource type="Theme" id="Theme_5aedu"]
+default_font = ExtResource("2_trcy7")
+default_font_size = 128
+
+[sub_resource type="Theme" id="Theme_4inip"]
+default_font = ExtResource("2_trcy7")
+default_font_size = 64
+
+[sub_resource type="Theme" id="Theme_go7hv"]
+default_font = ExtResource("2_trcy7")
+default_font_size = 64
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jjtcu"]
+texture = ExtResource("2_y0tw8")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1i7m3"]
+texture = ExtResource("3_nbd4m")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xqo3a"]
+texture = ExtResource("4_06pe7")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vr5br"]
+texture = ExtResource("5_g8w5r")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rc6no"]
+texture = ExtResource("6_lke22")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_l8loi"]
+texture = ExtResource("7_jjnll")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2nceh"]
+texture = ExtResource("8_nj4g1")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f1w8d"]
+texture = ExtResource("9_dtool")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+1:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_m5235"]
+scenes/1/scene = ExtResource("10_ixlvt")
+scenes/2/scene = ExtResource("11_g2kym")
+scenes/3/scene = ExtResource("12_8ktev")
+
+[sub_resource type="TileSet" id="TileSet_20fgd"]
+tile_size = Vector2i(64, 64)
+sources/0 = SubResource("TileSetAtlasSource_jjtcu")
+sources/1 = SubResource("TileSetAtlasSource_1i7m3")
+sources/2 = SubResource("TileSetAtlasSource_xqo3a")
+sources/3 = SubResource("TileSetAtlasSource_vr5br")
+sources/4 = SubResource("TileSetAtlasSource_rc6no")
+sources/5 = SubResource("TileSetAtlasSource_l8loi")
+sources/6 = SubResource("TileSetAtlasSource_2nceh")
+sources/7 = SubResource("TileSetAtlasSource_f1w8d")
+sources/8 = SubResource("TileSetScenesCollectionSource_m5235")
 
 [node name="ScreenUi" type="CanvasLayer"]
 script = ExtResource("1_erg1g")
 
 [node name="title_art" type="Sprite2D" parent="."]
+visible = false
 
 [node name="title_screen" type="Node2D" parent="."]
 position = Vector2(-1, 2)
 
 [node name="Title" type="RichTextLabel" parent="title_screen"]
-offset_left = -5.0
-offset_top = -14.0
-offset_right = 11.0
-offset_bottom = 12.0
+offset_left = 47.0
+offset_top = 75.0
+offset_right = 387.0
+offset_bottom = 216.0
+theme = SubResource("Theme_5aedu")
+text = "MICRO"
 fit_content = true
 
 [node name="Play" type="Sprite2D" parent="title_screen"]
+position = Vector2(-2, 71)
 
 [node name="play_button" type="Button" parent="title_screen/Play"]
-anchors_preset = -1
-offset_left = 292.0
-offset_top = 60.0
-offset_right = 805.0
-offset_bottom = 280.0
+offset_left = 161.0
+offset_top = 141.0
+offset_right = 412.0
+offset_bottom = 199.0
+theme = SubResource("Theme_4inip")
 text = "PLAY"
+metadata/_edit_use_anchors_ = true
 
 [node name="Quit" type="Sprite2D" parent="title_screen"]
+position = Vector2(-2, 71)
 
 [node name="quit_button" type="Button" parent="title_screen/Quit"]
-offset_left = 292.0
-offset_top = 317.0
-offset_right = 811.0
-offset_bottom = 547.0
+offset_left = 161.0
+offset_top = 231.0
+offset_right = 412.0
+offset_bottom = 310.0
+theme = SubResource("Theme_go7hv")
 text = "QUIT"
+metadata/_edit_use_anchors_ = true
+
+[node name="TileMap" type="TileMap" parent="."]
+z_index = -1
+tile_set = SubResource("TileSet_20fgd")
+format = 2
+layer_0/name = "Layer1"
+layer_0/modulate = Color(0.386183, 0.796352, 0.881957, 1)
+layer_0/z_index = -2
+layer_0/tile_data = PackedInt32Array(-65537, 0, 0, -1, 0, 0, 65535, 0, 0, 131071, 0, 0, 196607, 0, 0, 262143, 0, 0, 327679, 0, 0, 393215, 0, 0, 458751, 0, 0, 524287, 0, 0, 589823, 0, 0, -131072, 0, 0, -65536, 0, 0, 0, 0, 0, 65536, 0, 0, 131072, 0, 0, 196608, 0, 0, 262144, 0, 0, 327680, 0, 0, 393216, 0, 0, 458752, 0, 0, 524288, 0, 0, -131071, 0, 0, -65535, 0, 0, 1, 0, 0, 65537, 0, 0, 131073, 0, 0, 196609, 0, 0, 262145, 0, 0, 327681, 0, 0, 393217, 0, 0, 458753, 0, 0, 524289, 0, 0, -131070, 0, 0, -65534, 0, 0, 2, 0, 0, 65538, 0, 0, 131074, 0, 0, 196610, 0, 0, 262146, 0, 0, 327682, 0, 0, 393218, 0, 0, 458754, 0, 0, 524290, 0, 0, -131069, 0, 0, -65533, 0, 0, 3, 0, 0, 65539, 0, 0, 131075, 0, 0, 196611, 0, 0, 262147, 0, 0, 327683, 0, 0, 393219, 0, 0, 458755, 0, 0, 524291, 0, 0, -131068, 0, 0, -65532, 0, 0, 4, 0, 0, 65540, 0, 0, 131076, 0, 0, 196612, 0, 0, 262148, 0, 0, 327684, 0, 0, 393220, 0, 0, 458756, 0, 0, 524292, 0, 0, -131067, 0, 0, -65531, 0, 0, 5, 0, 0, 65541, 0, 0, 131077, 0, 0, 196613, 0, 0, 262149, 0, 0, 327685, 0, 0, 393221, 0, 0, 458757, 0, 0, 524293, 0, 0, -131066, 0, 0, -65530, 0, 0, 6, 0, 0, 65542, 0, 0, 131078, 0, 0, 196614, 0, 0, 262150, 0, 0, 327686, 0, 0, 393222, 0, 0, 458758, 0, 0, 524294, 0, 0, -131065, 0, 0, -65529, 0, 0, 7, 0, 0, 65543, 0, 0, 131079, 0, 0, 196615, 0, 0, 262151, 0, 0, 327687, 0, 0, 393223, 0, 0, 458759, 0, 0, 524295, 0, 0, -131064, 0, 0, -65528, 0, 0, 8, 0, 0, 65544, 0, 0, 131080, 0, 0, 196616, 0, 0, 262152, 0, 0, 327688, 0, 0, 393224, 0, 0, 458760, 0, 0, 524296, 0, 0, -131063, 0, 0, -65527, 0, 0, 9, 0, 0, 65545, 0, 0, 131081, 0, 0, 196617, 0, 0, 262153, 0, 0, 327689, 0, 0, 393225, 0, 0, 458761, 0, 0, 524297, 0, 0, -131062, 0, 0, -65526, 0, 0, 10, 0, 0, 65546, 0, 0, 131082, 0, 0, 196618, 0, 0, 262154, 0, 0, 327690, 0, 0, 393226, 0, 0, 458762, 0, 0, 524298, 0, 0, -131061, 0, 0, -65525, 0, 0, 11, 0, 0, 65547, 0, 0, 131083, 0, 0, 196619, 0, 0, 262155, 0, 0, 327691, 0, 0, 393227, 0, 0, 458763, 0, 0, 524299, 0, 0, -131060, 0, 0, -65524, 0, 0, 12, 0, 0, 65548, 0, 0, 131084, 0, 0, 196620, 0, 0, 262156, 0, 0, 327692, 0, 0, 393228, 0, 0, 458764, 0, 0, 524300, 0, 0, -131059, 0, 0, -65523, 0, 0, 13, 0, 0, 65549, 0, 0, 131085, 0, 0, 196621, 0, 0, 262157, 0, 0, 327693, 0, 0, 393229, 0, 0, 458765, 0, 0, 524301, 0, 0, -131058, 0, 0, -65522, 0, 0, 14, 0, 0, 65550, 0, 0, 131086, 0, 0, 196622, 0, 0, 262158, 0, 0, 327694, 0, 0, 393230, 0, 0, 458766, 0, 0, 524302, 0, 0, -131057, 0, 0, -65521, 0, 0, 15, 0, 0, 65551, 0, 0, 131087, 0, 0, 196623, 0, 0, 262159, 0, 0, 327695, 0, 0, 393231, 0, 0, 458767, 0, 0, 524303, 0, 0, -131056, 0, 0, -65520, 0, 0, 16, 0, 0, 65552, 0, 0, 131088, 0, 0, 196624, 0, 0, 262160, 0, 0, 327696, 0, 0, 393232, 0, 0, 458768, 0, 0, 524304, 0, 0, -131055, 0, 0, -65519, 0, 0, 17, 0, 0, 65553, 0, 0, 131089, 0, 0, 196625, 0, 0, 262161, 0, 0, 327697, 0, 0, 393233, 0, 0, 458769, 0, 0, 524305, 0, 0, -131054, 0, 0, -65518, 0, 0, 18, 0, 0, 65554, 0, 0, 131090, 0, 0, 196626, 0, 0, 262162, 0, 0, 327698, 0, 0, 393234, 0, 0, 458770, 0, 0, 524306, 0, 0)
+layer_1/name = "Layer0"
+layer_1/z_index = 1
+layer_1/tile_data = PackedInt32Array(589824, 1, 0, 589825, 1, 0, 589826, 1, 0, 589827, 1, 0, 589828, 1, 0, 589829, 1, 0, 589830, 1, 0, 589831, 1, 0, 589832, 1, 0, 589833, 1, 0, 589834, 1, 0, 589835, 1, 0, 589836, 1, 0, 589837, 1, 0, 589838, 1, 0, 589839, 1, 0, 589840, 1, 0, 589841, 1, 0, 589842, 1, 0, 655359, 1, 0, 720895, 1, 0, 655360, 1, 0, 655361, 1, 0, 655362, 1, 0, 655363, 1, 0, 655364, 1, 0, 655365, 1, 0, 655366, 1, 0, 655367, 1, 0, 655368, 1, 0, 655369, 1, 0, 655370, 1, 0, 655371, 1, 0, 655372, 1, 0, 655373, 1, 0, 655374, 1, 0, 655375, 1, 0, 655376, 1, 0, 655377, 1, 0, 655378, 1, 0, 589823, 1, 0, 524288, 1, 0, 524289, 1, 0, 524290, 1, 0, 524291, 1, 0, 524292, 1, 0, 524293, 1, 0, 524294, 1, 0, 524295, 1, 0, 524296, 1, 0, 524297, 1, 0, 524298, 1, 0, 524299, 1, 0, 524300, 1, 0, 524301, 1, 0, 524302, 1, 0, 524303, 1, 0, 524304, 1, 0, 524305, 1, 0, 524306, 1, 0, 524287, 6, 0, 458752, 6, 0, 458753, 6, 0, 458754, 6, 0, 458755, 6, 0, 458756, 6, 0, 458757, 6, 0, 458758, 6, 0, 458759, 6, 0, 458760, 6, 0, 458761, 6, 0, 458762, 6, 0, 458763, 6, 0, 458764, 6, 0, 458765, 6, 0, 458766, 6, 0, 458767, 6, 0, 458768, 6, 0, 458769, 6, 0, 458770, 6, 0)
+layer_2/name = "Layer2"
+layer_2/z_index = -1
+layer_2/tile_data = PackedInt32Array(589823, 8, 65536, 524288, 8, 196608, 524289, 8, 196608, 524290, 8, 65536, 524291, 8, 196608, 524292, 8, 65536, 524293, 8, 65536, 524294, 8, 131072, 524295, 8, 196608, 524296, 8, 196608, 524297, 8, 65536, 524298, 8, 65536, 524299, 8, 65536, 524300, 8, 131072, 524301, 8, 196608, 524302, 8, 65536, 524303, 8, 196608, 524304, 8, 65536, 524305, 8, 131072, 524306, 8, 196608)
+layer_3/name = "Layer3"
+layer_3/z_index = 1
+layer_3/tile_data = PackedInt32Array(393228, 7, 0, 458764, 7, 1, 393229, 65543, 0, 458765, 65543, 1, 393231, 7, 0, 458767, 7, 1, 393232, 65543, 0, 458768, 65543, 1, 262158, 7, 0, 327694, 7, 1, 262159, 65543, 0, 327695, 65543, 1, 393216, 7, 0, 458752, 7, 1, 393217, 65543, 0, 458753, 65543, 1)
 
 [connection signal="pressed" from="title_screen/Play/play_button" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="title_screen/Quit/quit_button" to="." method="_on_quit_button_pressed"]

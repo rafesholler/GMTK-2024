@@ -33,7 +33,8 @@ acceleration = 10.0
 position = Vector2(0, -5)
 scale = Vector2(0.2, 0.2)
 sprite_frames = SubResource("SpriteFrames_wpbp5")
-frame_progress = 0.67517
+autoplay = "default"
+frame_progress = 0.905157
 
 [node name="ColorRect" type="ColorRect" parent="."]
 visible = false

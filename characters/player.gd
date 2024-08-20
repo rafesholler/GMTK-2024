@@ -63,7 +63,7 @@ func _physics_process(delta: float) -> void:
 		$AnimatedSprite2D.play("Idle")
 	if is_on_floor() and velocity.x != 0:
 		$AnimatedSprite2D.play("Walk")
-	if velocity.y == 0:
+	if not is_on_floor():
 		$AnimatedSprite2D.play("Jump")
 	
 	if get_global_mouse_position().x > self.position.x:

@@ -7,7 +7,7 @@
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_07to4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7hbcd"]
-size = Vector2(245, 12)
+size = Vector2(303, 12)
 
 [node name="GrooveJoint2D" type="GrooveJoint2D"]
 node_a = NodePath("StaticBody2D")

@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://ba400k2p67nde" path="res://characters/player.tscn" id="1_cjr63"]
 [ext_resource type="PackedScene" uid="uid://bturint3egu10" path="res://Testing/scaleable_object.tscn" id="2_fu4hc"]
-[ext_resource type="PackedScene" path="res://Scenes and Scripts/elevatorplat.tscn" id="3_8pyde"]
+[ext_resource type="PackedScene" uid="uid://blspv8sfneapu" path="res://Scenes and Scripts/elevatorplat.tscn" id="3_8pyde"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_owr45"]
 size = Vector2(1155, 20)
@@ -30,8 +30,6 @@ shrink_limit = 0.15
 enlarge_limit = 0.8
 base_scale = 0.3
 scale_speed = 0.5
-revert = null
-revert_timer = null
 push_force = 100
 
 [node name="GrooveJoint2D" parent="." instance=ExtResource("3_8pyde")]

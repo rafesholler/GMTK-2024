@@ -40,26 +40,26 @@ func _physics_process(delta: float) -> void:
 		$RevertTimer.stop()
 		if Global.ray_mode == "shrink":
 			if not($CollisionShape2D.scale.x < shrink_scale) :
-				$Sprite2D.material.set("shader_parameter/width", 4)
-				$Sprite2D.material.set("shader_parameter/color", Color(1,.5,1,.75))
+				#$Sprite2D.material.set("shader_parameter/width", 4)
+				#$Sprite2D.material.set("shader_parameter/color", Color(1,.5,1,.75))
 				$CollisionShape2D.scale -= Vector2(scale_speed*delta, scale_speed*delta)
 				$Sprite2D.scale -= Vector2(scale_speed*delta, scale_speed*delta)
 				$Area2D/CollisionShape2D.scale -= Vector2(scale_speed*delta, scale_speed*delta)
-			else:
-				$Sprite2D.material.set("shader_parameter/width", 0)
+			#else:
+				#$Sprite2D.material.set("shader_parameter/width", 0)
 		if Global.ray_mode == "enlarge":
 			if not($CollisionShape2D.scale.x > enlarge_scale) :
-				$Sprite2D.material.set("shader_parameter/width", 4)
-				$Sprite2D.material.set("shader_parameter/color", Color(.5,1,1,.75))
+				#$Sprite2D.material.set("shader_parameter/width", 4)
+				#$Sprite2D.material.set("shader_parameter/color", Color(.5,1,1,.75))
 				$CollisionShape2D.scale += Vector2(scale_speed*delta, scale_speed*delta)
 				$Sprite2D.scale += Vector2(scale_speed*delta, scale_speed*delta)
 				$Area2D/CollisionShape2D.scale += Vector2(scale_speed*delta, scale_speed*delta)
-			else:
-				$Sprite2D.material.set("shader_parameter/width", 0)
+			#else:
+				#$Sprite2D.material.set("shader_parameter/width", 0)
 		mass = base_mass * $CollisionShape2D.scale.x
 
 	else:
-		$Sprite2D.material.set("shader_parameter/width", 0)
+		#$Sprite2D.material.set("shader_parameter/width", 0)
 		if $RevertTimer.is_stopped() and revert:
 			$RevertTimer.start(revert_timer)
 	
