@@ -15,7 +15,7 @@ shader_parameter/inside = true
 shader_parameter/add_margins = true
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b1oc0"]
-size = Vector2(128, 128)
+size = Vector2(130, 128)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_elqg1"]
 size = Vector2(142, 140)
@@ -31,6 +31,7 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_r47v4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 0)
 scale = Vector2(0.5, 0.5)
 shape = SubResource("RectangleShape2D_b1oc0")
 
