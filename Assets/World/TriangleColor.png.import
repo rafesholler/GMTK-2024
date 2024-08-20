@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://7xj38thq7qjq"
-path="res://.godot/imported/Grass3.png-e1d85ff2cdcd161402905926c523e83d.ctex"
+uid="uid://bpjpkuxndyx05"
+path="res://.godot/imported/TriangleColor.png-5feb410b34033e46c52954e992b86987.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/World/Grass/Grass3.png"
-dest_files=["res://.godot/imported/Grass3.png-e1d85ff2cdcd161402905926c523e83d.ctex"]
+source_file="res://Assets/World/TriangleColor.png"
+dest_files=["res://.godot/imported/TriangleColor.png-5feb410b34033e46c52954e992b86987.ctex"]
 
 [params]
 

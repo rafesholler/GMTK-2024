@@ -27,4 +27,3 @@ void fragment() {
     // yarp
     COLOR = screen;
 }
-

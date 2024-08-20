@@ -1,10 +1,9 @@
 [gd_scene load_steps=2 format=3 uid="uid://ct3ls5nfgeb8q"]
 
-[ext_resource type="Texture2D" uid="uid://ck657n6an6sfr" path="res://Assets/World/Grass/Grass3.png" id="1_lwt6n"]
+[ext_resource type="Texture2D" uid="uid://7xj38thq7qjq" path="res://Assets/World/Grass/Grass3.png" id="1_lwt6n"]
 
 [node name="ShadowGrass3" type="Sprite2D"]
 modulate = Color(0, 0, 0, 0.117647)
 position = Vector2(0, 256)
 rotation = 3.14159
-scale = Vector2(2, 2)
 texture = ExtResource("1_lwt6n")

@@ -222,9 +222,12 @@ zoom = Vector2(0.7, 0.7)
 
 [node name="Object" parent="Scalable" instance=ExtResource("8_qx75w")]
 position = Vector2(-293, 123)
+shrink_limit = 0.1
 enlarge_limit = 0.9
 base_scale = 1.0
 scale_speed = 0.2
+revert = null
+revert_timer = null
 
 [node name="Sprite2D" parent="Scalable/Object" index="0"]
 texture = ExtResource("23_kg32y")

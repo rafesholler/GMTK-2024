@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://7xj38thq7qjq"
-path="res://.godot/imported/Grass3.png-e1d85ff2cdcd161402905926c523e83d.ctex"
+uid="uid://dh817c8fsg0jn"
+path="res://.godot/imported/Untitled_Artwork 213.png-c92e932c05c15910fcde995e0a7d5011.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/World/Grass/Grass3.png"
-dest_files=["res://.godot/imported/Grass3.png-e1d85ff2cdcd161402905926c523e83d.ctex"]
+source_file="res://Assets/World/Enviro/Untitled_Artwork 213.png"
+dest_files=["res://.godot/imported/Untitled_Artwork 213.png-c92e932c05c15910fcde995e0a7d5011.ctex"]
 
 [params]
 

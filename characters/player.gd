@@ -51,8 +51,8 @@ func _physics_process(delta: float) -> void:
 	#Handle Visuals
 	$Raygun.rotation = position.angle_to_point(get_global_mouse_position())
 	if $Raygun/RayCast2D.is_colliding():
-		$Raygun/Ray/Beam.size.x = $Raygun.global_position.distance_to($Raygun/RayCast2D.get_collision_point()) * 20
-		$Raygun/Ray/CollisionShape2D.shape.size.x = $Raygun.global_position.distance_to($Raygun/RayCast2D.get_collision_point()) * 2
+		$Raygun/Ray/Beam.size.x = $Raygun.global_position.distance_to($Raygun/RayCast2D.get_collision_point()) * 25
+		$Raygun/Ray/CollisionShape2D.shape.size.x = $Raygun.global_position.distance_to($Raygun/RayCast2D.get_collision_point()) * 2.5
 		$Raygun/Ray/CollisionShape2D.position.x = $Raygun/Ray/CollisionShape2D.shape.size.x/2
 	else:
 		$Raygun/Ray/Beam.size.x = 30000

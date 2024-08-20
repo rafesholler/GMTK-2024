@@ -1,18 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://co8rsnuockbov"]
+[gd_scene load_steps=5 format=3 uid="uid://co8rsnuockbov"]
 
-[ext_resource type="Texture2D" uid="uid://c2q1xsr57u5cx" path="res://icon.svg" id="1_ayw5p"]
 [ext_resource type="PackedScene" uid="uid://ba400k2p67nde" path="res://characters/player.tscn" id="1_cjr63"]
 [ext_resource type="PackedScene" uid="uid://bturint3egu10" path="res://Testing/scaleable_object.tscn" id="2_fu4hc"]
+[ext_resource type="PackedScene" uid="uid://blspv8sfneapu" path="res://Scenes and Scripts/elevatorplat.tscn" id="3_8pyde"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_owr45"]
 size = Vector2(1155, 20)
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_k66xf"]
-
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_07to4"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7hbcd"]
-size = Vector2(226, 17)
 
 [node name="Test Scene" type="Node2D"]
 
@@ -32,33 +25,12 @@ shape = SubResource("RectangleShape2D_owr45")
 
 [node name="Object" parent="." instance=ExtResource("2_fu4hc")]
 position = Vector2(-434, -8)
+shrink_limit = 0.15
 physics_material_override = null
 enlarge_limit = 0.8
+base_scale = 0.3
 scale_speed = 0.5
+revert = null
+revert_timer = null
 
-[node name="GrooveJoint2D" type="GrooveJoint2D" parent="."]
-position = Vector2(-234, -25)
-node_a = NodePath("StaticBody2D")
-node_b = NodePath("RigidBody2D")
-length = 200.0
-initial_offset = 1.0
-
-[node name="StaticBody2D" type="StaticBody2D" parent="GrooveJoint2D"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="GrooveJoint2D/StaticBody2D"]
-shape = SubResource("CircleShape2D_k66xf")
-
-[node name="RigidBody2D" type="RigidBody2D" parent="GrooveJoint2D"]
-position = Vector2(0, 1)
-collision_mask = 7
-physics_material_override = SubResource("PhysicsMaterial_07to4")
-lock_rotation = true
-constant_force = Vector2(0, -985)
-
-[node name="Sprite2D" type="Sprite2D" parent="GrooveJoint2D/RigidBody2D"]
-position = Vector2(-1.90735e-06, 0)
-scale = Vector2(1.75, 0.132812)
-texture = ExtResource("1_ayw5p")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="GrooveJoint2D/RigidBody2D"]
-shape = SubResource("RectangleShape2D_7hbcd")
+[node name="GrooveJoint2D" parent="." instance=ExtResource("3_8pyde")]
