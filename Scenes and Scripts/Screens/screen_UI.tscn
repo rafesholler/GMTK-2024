@@ -1,0 +1,40 @@
+[gd_scene load_steps=2 format=3 uid="uid://uklixbql3iub"]
+
+[ext_resource type="Script" path="res://Scenes and Scripts/Screens/screen_UI.gd" id="1_erg1g"]
+
+[node name="ScreenUi" type="CanvasLayer"]
+script = ExtResource("1_erg1g")
+
+[node name="title_art" type="Sprite2D" parent="."]
+
+[node name="title_screen" type="Node2D" parent="."]
+position = Vector2(-1, 2)
+
+[node name="Title" type="RichTextLabel" parent="title_screen"]
+offset_left = -5.0
+offset_top = -14.0
+offset_right = 11.0
+offset_bottom = 12.0
+fit_content = true
+
+[node name="Play" type="Sprite2D" parent="title_screen"]
+
+[node name="play_button" type="Button" parent="title_screen/Play"]
+anchors_preset = -1
+offset_left = 292.0
+offset_top = 60.0
+offset_right = 805.0
+offset_bottom = 280.0
+text = "PLAY"
+
+[node name="Quit" type="Sprite2D" parent="title_screen"]
+
+[node name="quit_button" type="Button" parent="title_screen/Quit"]
+offset_left = 292.0
+offset_top = 317.0
+offset_right = 811.0
+offset_bottom = 547.0
+text = "QUIT"
+
+[connection signal="pressed" from="title_screen/Play/play_button" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="title_screen/Quit/quit_button" to="." method="_on_quit_button_pressed"]
