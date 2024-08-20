@@ -4,8 +4,7 @@ class_name Ant
 @export var speed : float
 @export var acceleration : float
 @export_enum("Left:-1", "Right:1") var direction : int
-@export var max_push_force = 20 #note: the player's push force is 50
-var push_force = 0
+@export var push_force = 4000 #note: the player's push force is 2000
 var stopped = false
 var timer = 0
 func _ready() -> void:
@@ -21,15 +20,16 @@ func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 		
+		
 	if not $RayCast2D.is_colliding() and velocity.y == 0:
 		direction *= -1
 		$RayCast2D.position.x *= -1
-	#if velocity.x == 0 and is_on_floor():
-		#timer += delta 
-		#if timer >= 0.1:#necessary so ants don't instantly turn around whenever they bump into smth
-			#direction *= -1
-			#$RayCast2D.position.x *= -1
-			#timer = 0
+	if velocity.x == 0 and is_on_floor():
+		timer += delta 
+		if timer >= 0.1:#necessary so ants don't instantly turn around whenever they bump into smth
+			direction *= -1
+			$RayCast2D.position.x *= -1
+			timer = 0
 	
 	velocity.x = speed * direction
 	
@@ -40,14 +40,13 @@ func _physics_process(delta: float) -> void:
 		rotation = rot
 		if velocity.x != 0 and velocity.y == 0 and abs(rot) > 4*PI/9:
 			velocity = velocity.rotated(rot)
-	
+	if get_slide_collision_count() > 1: velocity = velocity/2
 	for i in get_slide_collision_count():
 		var c = get_slide_collision(i)
 		if c.get_collider() is RigidBody2D:
 			#if push_force <= max_push_force:
 				#push_force += delta*max_push_force
-				c.get_collider().apply_central_impulse(-c.get_normal() * max_push_force)
+			c.get_collider().apply_force(-c.get_normal() * push_force, Vector2(direction, 1))
 	#print(push_force)
 	#if get_slide_collision_count() == 0: push_force = 0
-	#print(velocity.x)
 	move_and_slide()

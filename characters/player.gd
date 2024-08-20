@@ -7,7 +7,7 @@ extends CharacterBody2D
 @export var FRICT = 10.0
 @export var weight = 1
 @export var max_health = 3
-@export var push_force = 10
+@export var push_force = 2000
 var health = max_health
 
 var inventory : Scalable
@@ -63,7 +63,7 @@ func _physics_process(delta: float) -> void:
 		$AnimatedSprite2D.play("Idle")
 	if is_on_floor() and velocity.x != 0:
 		$AnimatedSprite2D.play("Walk")
-	if not is_on_floor():
+	if velocity.y == 0:
 		$AnimatedSprite2D.play("Jump")
 	
 	if get_global_mouse_position().x > self.position.x:
@@ -92,9 +92,9 @@ func _physics_process(delta: float) -> void:
 	for i in get_slide_collision_count():
 		var c = get_slide_collision(i)
 		if c.get_collider() is RigidBody2D:
-			c.get_collider().apply_impulse(-c.get_normal() * push_force, Vector2(sign(velocity.x), 1))
+			#c.get_collider().apply_impulse(-c.get_normal() * push_force, Vector2(sign(velocity.x), 1))
 			#c.get_collider().apply_central_impulse(-c.get_normal() * push_force)
-
+			c.get_collider().apply_force(-c.get_normal() * push_force, Vector2(sign(velocity.x), 1))
 	Global.player_vel = velocity
 	Global.player_pos = position
 	move_and_slide()	

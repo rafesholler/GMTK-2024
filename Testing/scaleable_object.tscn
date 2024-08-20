@@ -2,7 +2,7 @@
 
 [ext_resource type="Shader" path="res://Scenes and Scripts/Shader/outline.gdshader" id="1_6craw"]
 [ext_resource type="Script" path="res://Testing/Scenes and Scripts/object.gd" id="1_e8gyx"]
-[ext_resource type="Texture2D" uid="uid://c2q1xsr57u5cx" path="res://icon.svg" id="2_r47v4"]
+[ext_resource type="Texture2D" uid="uid://dqcfcegtaomwj" path="res://Assets/World/Enviro/Untitled_Artwork 211.png" id="3_y2wmq"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_fjvir"]
 
@@ -29,7 +29,7 @@ push_force = 0
 [node name="Sprite2D" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_qg4lj")
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_r47v4")
+texture = ExtResource("3_y2wmq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, 0)

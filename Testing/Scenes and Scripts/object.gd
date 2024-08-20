@@ -1,9 +1,9 @@
 extends RigidBody2D
 class_name Scalable
 
-@export var shrink_limit = .3
-@export var enlarge_limit = .5
-@export var base_scale = .5
+@export var shrink_limit = .4
+@export var enlarge_limit = .3
+@export var base_scale = 0.5
 @export var scale_speed = .1
 @export var revert := false
 @export var revert_timer := 3
@@ -11,7 +11,7 @@ class_name Scalable
 @export var push_force = 100 #quick fix. don't leave it like this
 @export var pocketable := false
 @export var pocket_texture : Texture2D
-
+var real_base_scale
 var shrink_scale
 var enlarge_scale
 
@@ -24,15 +24,16 @@ var mouse_hovering = false
 var scale_on_ready = true
 
 func _ready() -> void:
-	
-	shrink_scale = base_scale - shrink_limit
-	enlarge_scale = base_scale + enlarge_limit
+	real_base_scale = get_scale().x*base_scale
+
+	shrink_scale = real_base_scale*(1-shrink_limit)
+	enlarge_scale = real_base_scale*(1+enlarge_limit)
 	mass = base_mass * $CollisionShape2D.scale.x #note: this is in case we want to have a scaled up object that you need to scale down or smth 
 	if scale_on_ready:
-		$Sprite2D.scale = Vector2(base_scale, base_scale)
-		$CollisionShape2D.scale = Vector2(base_scale, base_scale)
-		$Area2D/CollisionShape2D.scale = Vector2(base_scale, base_scale)
-	print(get_inertia())
+		$Sprite2D.scale = Vector2(base_scale*get_scale().x, base_scale*get_scale().y)
+		$CollisionShape2D.scale = Vector2(base_scale*get_scale().x, base_scale*get_scale().y)
+		$Area2D/CollisionShape2D.scale = Vector2(base_scale*get_scale().x, base_scale*get_scale().y)
+
 
 func _physics_process(delta: float) -> void:
 	if scaling:
@@ -56,6 +57,7 @@ func _physics_process(delta: float) -> void:
 			else:
 				$Sprite2D.material.set("shader_parameter/width", 0)
 		mass = base_mass * $CollisionShape2D.scale.x
+
 	else:
 		$Sprite2D.material.set("shader_parameter/width", 0)
 		if $RevertTimer.is_stopped() and revert:

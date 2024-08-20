@@ -80,11 +80,14 @@ position = Vector2(471, -283)
 shape = SubResource("RectangleShape2D_8vmy2")
 
 [node name="Ant" parent="." instance=ExtResource("2_1lywo")]
-position = Vector2(108, -372)
+position = Vector2(319, -110)
 direction = -1
 
 [node name="Object" parent="." instance=ExtResource("3_f0dyq")]
-position = Vector2(508.345, -37.7456)
+position = Vector2(793, -444)
+scale = Vector2(4.56, 1)
 
 [node name="Object2" parent="." instance=ExtResource("3_f0dyq")]
-position = Vector2(513, -335)
+position = Vector2(504, -411)
+
+[editable path="Object2"]
