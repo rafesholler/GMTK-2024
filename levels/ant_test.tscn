@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bgf885yelkp5q"]
+[gd_scene load_steps=10 format=3 uid="uid://bgf885yelkp5q"]
 
 [ext_resource type="PackedScene" uid="uid://ba400k2p67nde" path="res://characters/player.tscn" id="1_oswxq"]
 [ext_resource type="PackedScene" uid="uid://dayf8vm13dcei" path="res://characters/tiny/ant.tscn" id="2_1lywo"]
@@ -18,6 +18,9 @@ size = Vector2(20, 241)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u3s1y"]
 size = Vector2(20, 241)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8vmy2"]
+size = Vector2(955.5, 20)
 
 [node name="Tutorial" type="Node2D"]
 
@@ -72,11 +75,16 @@ offset_right = 518.0
 offset_bottom = 200.0
 color = Color(0, 0, 0, 1)
 
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="Ground"]
+position = Vector2(471, -283)
+shape = SubResource("RectangleShape2D_8vmy2")
+
 [node name="Ant" parent="." instance=ExtResource("2_1lywo")]
-position = Vector2(235, -82)
+position = Vector2(108, -372)
+direction = -1
 
 [node name="Object" parent="." instance=ExtResource("3_f0dyq")]
 position = Vector2(508.345, -37.7456)
 
 [node name="Object2" parent="." instance=ExtResource("3_f0dyq")]
-position = Vector2(984, -47)
+position = Vector2(513, -335)

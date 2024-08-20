@@ -65,6 +65,7 @@ zoom = Vector2(0.5, 0.5)
 
 [node name="Object" parent="." instance=ExtResource("4_khk0t")]
 position = Vector2(97, -170)
+physics_material_override = null
 pocketable = true
 
 [node name="AntSwitch" parent="." instance=ExtResource("5_mgcb2")]
@@ -72,6 +73,7 @@ position = Vector2(279, -38)
 
 [node name="Object2" parent="." instance=ExtResource("4_khk0t")]
 position = Vector2(316, -169)
+physics_material_override = null
 pocketable = true
 
 [editable path="CurvedPath2"]

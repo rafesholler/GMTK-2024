@@ -27,16 +27,14 @@ func _ready() -> void:
 	shrink_scale = base_scale - shrink_limit
 	enlarge_scale = base_scale + enlarge_limit
 	mass = base_mass * $CollisionShape2D.scale.x #note: this is in case we want to have a scaled up object that you need to scale down or smth 
-
-func _physics_process(delta: float) -> void:
-	
 	if scale_on_ready:
 		$Sprite2D.scale = Vector2(base_scale, base_scale)
 		$CollisionShape2D.scale = Vector2(base_scale, base_scale)
 		$Area2D/CollisionShape2D.scale = Vector2(base_scale, base_scale)
+	
+	
 
 func _physics_process(delta: float) -> void:
-	mass = $CollisionShape2D.scale.x * 2
 	if scaling:
 		$RevertTimer.stop()
 		if Global.ray_mode == "shrink":

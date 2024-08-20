@@ -12,7 +12,8 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	print(player_inv)
+	pass
+	#print(player_inv)
 
 func add_inventory(object: Scalable) -> void:
 	player_inv = object
