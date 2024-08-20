@@ -363,7 +363,7 @@ scale_speed = 0.3
 
 [node name="Player" parent="." instance=ExtResource("26_688t7")]
 z_index = 3
-position = Vector2(8922, 210)
+position = Vector2(7881, 545)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 offset = Vector2(0, -100)
