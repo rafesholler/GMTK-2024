@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://c2q1xsr57u5cx" path="res://icon.svg" id="1_pmqsp"]
 [ext_resource type="Texture2D" uid="uid://bbwcrv5vyaln8" path="res://Assets/World/Enviro/Cola.png" id="2_85cn3"]
 [ext_resource type="PackedScene" uid="uid://bturint3egu10" path="res://Testing/scaleable_object.tscn" id="2_sueb5"]
-[ext_resource type="PackedScene" uid="uid://blspv8sfneapu" path="res://Scenes and Scripts/elevatorplat.tscn" id="3_msc82"]
+[ext_resource type="PackedScene" path="res://Scenes and Scripts/elevatorplat.tscn" id="3_msc82"]
 [ext_resource type="PackedScene" uid="uid://ba400k2p67nde" path="res://characters/player.tscn" id="3_wpv4w"]
 [ext_resource type="Texture2D" uid="uid://cmjxcowdvwndb" path="res://Assets/World/Wood/Wood2.png" id="4_cfglw"]
 [ext_resource type="Texture2D" uid="uid://ch7pjqe5m5opt" path="res://Assets/World/Ground/Untitled_Artwork 207.png" id="4_w5xwo"]
@@ -307,7 +307,6 @@ position = Vector2(0, 0)
 shape = SubResource("RectangleShape2D_tnolu")
 
 [node name="CollisionShape2D" parent="Scalables/Object5/Area2D" index="0"]
-position = Vector2(0, 0)
 shape = SubResource("RectangleShape2D_50y6r")
 
 [node name="Object7" parent="Scalables" instance=ExtResource("2_sueb5")]
@@ -323,7 +322,6 @@ position = Vector2(0, 0)
 shape = SubResource("RectangleShape2D_tnolu")
 
 [node name="CollisionShape2D" parent="Scalables/Object7/Area2D" index="0"]
-position = Vector2(0, 0)
 shape = SubResource("RectangleShape2D_50y6r")
 
 [node name="Object8" parent="Scalables" instance=ExtResource("2_sueb5")]
@@ -339,7 +337,6 @@ position = Vector2(0, 0)
 shape = SubResource("RectangleShape2D_tnolu")
 
 [node name="CollisionShape2D" parent="Scalables/Object8/Area2D" index="0"]
-position = Vector2(0, 0)
 shape = SubResource("RectangleShape2D_50y6r")
 
 [node name="Player" parent="." instance=ExtResource("3_wpv4w")]
